@@ -1,253 +1,157 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-SG">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/png" href="assets/playroom-logo.png">
-<title>Playroom — Free browser games & game-night ideas</title>
-<meta name="description" content="Play a free 20-second reflex game, draw conversation cards, take a one-minute breather, or make a game-night invite. No download, no account, no payments.">
+<title>Playroom — The Combine: free esports skill drills, made in Singapore</title>
+<meta name="description" content="Five quick esports-style drills with a Singapore twist: MRT reaction, chope-the-seat aim, queue-rush click speed, hawker memory and kopi-order typing. Get your rank. Free, no download, no account.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://c88gaming.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://c88gaming.com/">
-<meta property="og:title" content="Playroom — Free browser games & game-night ideas">
-<meta property="og:description" content="A 20-second reflex game, conversation cards for friends, and a game-night invite maker. Free, in your browser.">
+<meta property="og:title" content="Playroom — The Combine">
+<meta property="og:description" content="Five esports-style skill drills with a Singapore twist. Free in your browser. Can you hit Steady Pom Pi Pi?">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=IBM+Plex+Mono:wght@500&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
-
-<style>
-  :root {
-    --paper: #f4f1e8;
-    --paper-2: #ebe6d8;
-    --ink: #1b1b18;
-    --ink-soft: #55534b;
-    --line: #1b1b18;
-    --lime: #d4f76b;
-    --tomato: #e8553e;
-    --display: "Bricolage Grotesque", "Arial Black", sans-serif;
-    --body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-    --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.6 var(--body); -webkit-font-smoothing: antialiased; }
-  a { color: inherit; }
-  button, input { font: inherit; color: inherit; }
-  h1, h2, h3 { font-family: var(--display); font-weight: 800; line-height: 1; margin: 0; letter-spacing: -0.02em; }
-  mark { background: linear-gradient(transparent 55%, var(--lime) 55%); color: inherit; padding: 0 .08em; }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
-  .note { font-family: var(--mono); font-size: 13px; color: var(--ink-soft); }
-  :focus-visible { outline: 3px solid var(--tomato); outline-offset: 3px; }
-
-  .btn { display: inline-block; background: var(--ink); color: var(--paper); border: 2px solid var(--ink); border-radius: 999px; padding: 13px 24px; font-weight: 600; font-size: 16px; text-decoration: none; cursor: pointer; }
-  .btn:hover { background: var(--tomato); border-color: var(--tomato); }
-  .btn.ghost { background: transparent; color: var(--ink); }
-  .btn.ghost:hover { background: var(--ink); color: var(--paper); }
-  .btn:disabled { opacity: .45; cursor: default; background: var(--ink); border-color: var(--ink); }
-
-  /* Header */
-  header { border-bottom: 2px solid var(--line); }
-  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 24px; }
-  .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: var(--display); font-weight: 800; font-size: 24px; }
-  .logo img { width: 34px; height: 34px; }
-  nav { display: flex; gap: 28px; font-size: 15px; }
-  nav a { text-decoration: none; }
-  nav a:hover { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 2px; }
-
-  /* Hero with the playable game */
-  .hero { padding: 64px 0 72px; border-bottom: 2px solid var(--line); }
-  .hero .wrap { display: grid; grid-template-columns: 1fr 440px; gap: 64px; align-items: center; }
-  .hero h1 { font-size: clamp(52px, 7.5vw, 96px); }
-  .hero p.lead { font-size: 19px; max-width: 470px; margin: 24px 0 28px; color: var(--ink-soft); }
-  .hero ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; }
-  .hero li::before { content: "✓ "; color: var(--tomato); font-weight: 600; }
-  .hero li { font-size: 15px; }
-
-  .machine { background: var(--ink); color: var(--paper); border-radius: 22px; padding: 22px; }
-  .machine-top { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 13px; color: #b9b6aa; margin-bottom: 16px; }
-  .machine-top b { color: var(--lime); font-weight: 500; }
-  .board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-  .tile { aspect-ratio: 1; border: 0; border-radius: 12px; background: #2f2f2a; cursor: pointer; transition: background .08s; }
-  .tile.on { background: var(--lime); }
-  .tile.hit { background: var(--tomato); }
-  .machine-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; gap: 12px; }
-  .machine .btn { background: var(--lime); color: var(--ink); border-color: var(--lime); }
-  .machine .btn:hover { background: #e6ff9c; border-color: #e6ff9c; }
-  .machine-msg { font-size: 14px; color: #d8d5ca; }
-
-  /* Sections */
-  section.block { padding: 88px 0; border-bottom: 2px solid var(--line); }
-  .block .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-  .block h2 { font-size: clamp(40px, 5vw, 64px); margin: 10px 0 18px; }
-  .block p { color: var(--ink-soft); max-width: 460px; margin: 0 0 24px; }
-  .block.alt { background: var(--paper-2); }
-
-  /* Table Talk card */
-  .deck { position: relative; height: 340px; }
-  .deck .card { position: absolute; inset: 0; background: #fffdf6; border: 2px solid var(--line); border-radius: 18px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; }
-  .deck .card.back1 { transform: rotate(4deg) translate(10px, 6px); background: var(--lime); }
-  .deck .card.back2 { transform: rotate(-3deg) translate(-6px, 4px); background: var(--paper-2); }
-  .deck .card.front { transform: rotate(-1deg); }
-  .card .q { color: var(--ink); max-width: none; margin: 0; font-family: var(--display); font-weight: 800; font-size: clamp(26px, 3vw, 34px); line-height: 1.15; }
-  .card .meta { display: flex; justify-content: space-between; }
-
-  /* Breather */
-  .breath { display: grid; place-items: center; height: 360px; position: relative; }
-  .ring { position: absolute; width: 300px; height: 300px; border: 2px dashed var(--ink); border-radius: 50%; }
-  .ball { width: 120px; height: 120px; border-radius: 50%; background: var(--lime); border: 2px solid var(--ink); transition: transform 4s ease-in-out; }
-  .ball.big { transform: scale(2.4); }
-  .breath-label { position: absolute; bottom: 0; font-family: var(--mono); font-size: 15px; }
-
-  /* Invite maker */
-  .ticket { background: #fffdf6; border: 2px solid var(--line); border-radius: 18px; padding: 28px; }
-  .ticket label { display: block; font-weight: 600; margin-bottom: 8px; }
-  .ticket input { width: 100%; padding: 14px 16px; border: 2px solid var(--line); border-radius: 12px; background: var(--paper); margin-bottom: 16px; }
-  .ticket .row { display: flex; gap: 10px; flex-wrap: wrap; }
-  .ticket .out { margin-top: 20px; padding-top: 20px; border-top: 2px dashed var(--line); display: none; }
-  .ticket .out.show { display: block; }
-  .ticket .out p { margin: 0 0 10px; color: var(--ink); }
-  .ideas { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
-  .chip { border: 2px solid var(--line); background: transparent; border-radius: 999px; padding: 6px 14px; font-size: 14px; cursor: pointer; }
-  .chip:hover { background: var(--lime); }
-
-  /* Fine print */
-  .fine { padding: 80px 0; }
-  .fine h2 { font-size: clamp(32px, 4vw, 48px); margin-bottom: 32px; }
-  .fine dl { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 56px; margin: 0; }
-  .fine dt { font-weight: 600; margin-bottom: 6px; }
-  .fine dd { margin: 0; color: var(--ink-soft); }
-
-  footer { border-top: 2px solid var(--line); padding: 28px 0 36px; font-size: 14px; color: var(--ink-soft); }
-  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-  footer nav { gap: 20px; }
-
-  .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: var(--ink); color: var(--paper); padding: 12px 20px; border-radius: 999px; font-size: 14px; opacity: 0; pointer-events: none; transition: opacity .2s; }
-  .toast.show { opacity: 1; }
-
-  @media (max-width: 900px) {
-    .hero .wrap, .block .wrap { grid-template-columns: 1fr; gap: 40px; }
-    .machine { max-width: 440px; }
-    .block .visual { order: 2; }
-    .fine dl { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 640px) {
-    .wrap { padding: 0 16px; }
-    nav.main { display: none; }
-    .hero { padding: 40px 0 56px; }
-    section.block { padding: 64px 0; }
-    .deck { height: 300px; }
-    .ring { width: 240px; height: 240px; }
-    .ball { width: 96px; height: 96px; }
-  }
-  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .ball { transition: none; } }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=IBM+Plex+Mono:wght@500;600&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header>
   <div class="wrap">
-    <a class="logo" href="/"><img src="assets/playroom-logo.png" alt="" width="34" height="34">Playroom</a>
+    <a class="logo" href="/"><img src="assets/playroom-logo.png" alt="" width="30" height="30">Playroom</a>
     <nav class="main" aria-label="Main">
-      <a href="#knockout">Knockout</a>
-      <a href="#table-talk">Table Talk</a>
-      <a href="#breather">Breather</a>
-      <a href="#invite">Game night</a>
+      <a href="#drills">Drills</a>
+      <a href="#arena">Arena</a>
+      <a href="#lobby">Lobby talk</a>
+      <a href="about.html">How ranks work</a>
     </nav>
+    <a class="btn" href="#arena">Play</a>
   </div>
 </header>
 
 <main>
-  <section class="hero" id="knockout" aria-labelledby="hero-title">
+  <section class="hero" aria-labelledby="hero-title">
     <div class="wrap">
       <div>
-        <h1 id="hero-title">Got <mark>20 seconds?</mark></h1>
-        <p class="lead">Hit the lit square. It jumps somewhere else every second, and every hit moves it too. See how many you can get before the clock runs out.</p>
-        <ul>
-          <li>Free</li>
-          <li>Plays in your browser</li>
-          <li>No sign-up</li>
-        </ul>
+        <span class="kicker">Season 01 · Made in SG · Free to play</span>
+        <h1 id="hero-title">The <span>Combine</span></h1>
+        <p class="lead">Five quick drills that test what pro players train: reaction, aim, click speed, memory and typing. Except here you're beating the MRT doors, choping seats and shouting kopi orders. About two minutes. Clear all five to get your rank.</p>
+        <div class="actions">
+          <a class="btn" href="#arena">Start drill 01</a>
+          <a class="btn dark" href="#drills">See the drills</a>
+        </div>
+        <div class="facts">
+          <div><b>5</b>drills</div>
+          <div><b>~2 min</b>to clear</div>
+          <div><b>S$0</b>always</div>
+        </div>
       </div>
 
-      <div class="machine" aria-label="Knockout, a reflex game">
-        <div class="machine-top"><span>KNOCKOUT</span><span>best <b id="best">–</b></span></div>
-        <div class="board" id="board">
-          <button class="tile" aria-label="Square 1"></button><button class="tile on" aria-label="Square 2"></button><button class="tile" aria-label="Square 3"></button>
-          <button class="tile" aria-label="Square 4"></button><button class="tile" aria-label="Square 5"></button><button class="tile" aria-label="Square 6"></button>
-          <button class="tile" aria-label="Square 7"></button><button class="tile" aria-label="Square 8"></button><button class="tile" aria-label="Square 9"></button>
+      <aside class="scorecard" aria-label="Your scorecard">
+        <div class="sc-head"><h2>Scorecard</h2><span class="kicker">This session</span></div>
+        <div id="scRows"></div>
+        <div class="meter" aria-hidden="true"><i id="meter"></i></div>
+        <div class="rank">
+          <div><span class="kicker" style="color:var(--muted)">Rank</span><div class="rank-badge" id="rank">Unranked</div></div>
+          <p id="rankNote">Clear all 5 drills to get ranked.</p>
         </div>
-        <div class="machine-foot">
-          <span class="machine-msg" id="status" role="status">Ready when you are.</span>
-          <button class="btn" id="start">Start</button>
-        </div>
-        <noscript><p class="machine-msg">Knockout needs JavaScript turned on to play.</p></noscript>
+      </aside>
+    </div>
+  </section>
+
+  <section class="block" id="drills" aria-labelledby="drills-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><span class="kicker">The drills</span><h2 id="drills-title">Five stations</h2></div>
+        <p>Each drill tests one skill. Play them in any order and retry as many times as you want. Only your best score counts.</p>
+      </div>
+      <div class="drills">
+        <article class="drill"><span class="no">01</span><h3>Doors Closing</h3><div class="tests">Tests: reaction</div><p>The MRT doors are closing. Wait for the signal, then tap to squeeze in. Five tries, averaged in milliseconds.</p><button class="btn dark" data-go="reaction">Play</button></article>
+        <article class="drill"><span class="no">02</span><h3>Chope!</h3><div class="tests">Tests: aim</div><p>Lunch crowd at the hawker centre. Chope 20 seats as they pop up, before anyone else. Misses count.</p><button class="btn dark" data-go="aim">Play</button></article>
+        <article class="drill"><span class="no">03</span><h3>Queue Rush</h3><div class="tests">Tests: click speed</div><p>The bubble tea queue is 40 people long. Mash for five seconds. Scored in taps per second.</p><button class="btn dark" data-go="cps">Play</button></article>
+        <article class="drill"><span class="no">04</span><h3>Hawker Recall</h3><div class="tests">Tests: memory</div><p>Your kakis want food from different stalls. Remember the order they light up in. One more each round.</p><button class="btn dark" data-go="memory">Play</button></article>
+        <article class="drill"><span class="no">05</span><h3>Kopi Order</h3><div class="tests">Tests: typing</div><p>Type twelve drink orders like "kopi o kosong" and "teh c siew dai" before uncle loses patience. Words per minute.</p><button class="btn dark" data-go="typing">Play</button></article>
       </div>
     </div>
   </section>
 
-  <section class="block alt" id="table-talk" aria-labelledby="tt-title">
+  <section class="block alt" id="arena" aria-labelledby="arena-title">
     <div class="wrap">
-      <div>
-        <span class="note">For 2 or more people</span>
-        <h2 id="tt-title">Table Talk</h2>
-        <p>Conversation cards for when the group goes quiet. Draw one, read it out, go around the table. Skipping is allowed. Lying is encouraged.</p>
-        <button class="btn" id="draw">Draw a card</button>
+      <div class="sec-head">
+        <div><span class="kicker">Arena</span><h2 id="arena-title">Your turn</h2></div>
+        <p>Pick a drill. Results go straight to your scorecard. Want to know how the rank is worked out? <a href="about.html" style="color:var(--lime)">Here's the maths.</a></p>
       </div>
-      <div class="visual">
-        <div class="deck">
-          <div class="card back1" aria-hidden="true"></div>
-          <div class="card back2" aria-hidden="true"></div>
-          <div class="card front">
-            <span class="note">Table Talk</span>
-            <p class="q" id="question" aria-live="polite">What game did you play way too much as a kid?</p>
-            <div class="meta note"><span id="count">1 of 24</span><span>Playroom</span></div>
+      <div class="arena">
+        <div class="tabs" role="tablist" aria-label="Drills" id="tabs"></div>
+        <div class="stage" role="tabpanel" aria-labelledby="hudName">
+          <div class="hud"><span id="hudName">Doors Closing</span><span id="hudStat">Best <b>—</b></span></div>
+          <div class="play" id="play">
+            <noscript><p class="hint">The drills need JavaScript turned on to play.</p></noscript>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="block" id="breather" aria-labelledby="br-title">
-    <div class="wrap">
-      <div class="visual breath" aria-hidden="true">
+  <section class="block" id="lobby" aria-labelledby="lobby-title">
+    <div class="wrap split">
+      <div>
+        <span class="kicker">Lobby talk</span>
+        <h2 id="lobby-title">Waiting for the squad?</h2>
+        <p>Questions for the voice channel while the last fella loads in. Draw one, everyone answers. Hot takes only.</p>
+        <button class="btn" id="draw">Draw a question</button>
+      </div>
+      <div class="callcard">
+        <span class="meta"><span>Lobby talk</span><span id="count">1 / 24</span></span>
+        <p class="q" id="question" aria-live="polite">Supper after the match: prata, McSpicy or mala?</p>
+        <span class="meta"><span>Playroom</span><span>No wrong answers</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt" id="between" aria-labelledby="br-title">
+    <div class="wrap split">
+      <div class="breath" aria-hidden="true">
         <div class="ring"></div>
         <div class="ball" id="ball"></div>
-        <span class="breath-label" id="breathLabel">in · hold · out</span>
+        <span class="breath-label" id="breathLabel">In · hold · out</span>
       </div>
       <div>
-        <span class="note">One minute</span>
-        <h2 id="br-title">Breather</h2>
-        <p>Lost three rounds in a row? Follow the circle. Breathe in while it grows, hold, then breathe out while it shrinks, four seconds each. Stop whenever you like.</p>
+        <span class="kicker">Kopi break</span>
+        <h2 id="br-title">Don't tilt</h2>
+        <p>Lost three rounds in a row? Pros take a breather between rounds too. Breathe in while the circle grows, hold, then breathe out, four seconds each. One minute and you're back.</p>
         <button class="btn" id="breathe">Start</button>
       </div>
     </div>
   </section>
 
-  <section class="block alt" id="invite" aria-labelledby="inv-title">
-    <div class="wrap">
+  <section class="block" id="squad" aria-labelledby="squad-title">
+    <div class="wrap split">
       <div>
-        <span class="note">Planning, not hosting</span>
-        <h2 id="inv-title">Get the group together</h2>
-        <p>Give your game night a name and copy a link to drop in the group chat. Sort out the time and the game there. This just gets the conversation started.</p>
+        <span class="kicker">Squad up</span>
+        <h2 id="squad-title">Jio your kakis</h2>
+        <p>Name your session and copy a link for the group chat. Your friends open it, run the Combine, then compare ranks. You settle the time and the game in the chat.</p>
       </div>
       <div class="ticket">
-        <div class="ideas" aria-label="Name ideas">
-          <button class="chip" type="button">Friday arcade</button>
-          <button class="chip" type="button">Couch co-op</button>
-          <button class="chip" type="button">Loser buys snacks</button>
+        <div class="chips" aria-label="Name ideas">
+          <button class="chip" type="button">Friday night scrims</button>
+          <button class="chip" type="button">Loser belanja kopi</button>
+          <button class="chip" type="button">Ranked or bust</button>
         </div>
         <form id="inviteForm">
-          <label for="nightName">Name your game night</label>
-          <input id="nightName" maxlength="60" placeholder="e.g. Friday arcade" required>
+          <label for="nightName">Session name</label>
+          <input id="nightName" maxlength="60" placeholder="e.g. Friday night scrims" required>
           <button class="btn">Make the link</button>
         </form>
         <div class="out" id="out">
-          <p><strong id="outName"></strong> is on.</p>
+          <p class="hint"><strong id="outName" style="color:var(--text)"></strong> is on. Share this:</p>
           <div class="row">
-            <input id="link" readonly aria-label="Invite link" style="margin:0;flex:1;min-width:0">
-            <button class="btn ghost" id="copy" type="button">Copy</button>
+            <input id="link" readonly aria-label="Invite link">
+            <button class="btn dark" id="copy" type="button">Copy</button>
           </div>
         </div>
       </div>
@@ -256,12 +160,12 @@
 
   <section class="fine" aria-labelledby="fine-title">
     <div class="wrap">
-      <h2 id="fine-title">The fine print (it's short)</h2>
+      <h2 id="fine-title">The fine print</h2>
       <dl>
-        <div><dt>Does it cost anything?</dt><dd>No. There are no payments, in-game purchases, bets or prizes. It's free.</dd></div>
+        <div><dt>Does it cost anything?</dt><dd>No. There are no payments, in-game purchases, bets or prizes. Ranks are just for bragging rights.</dd></div>
         <div><dt>Do I need an account?</dt><dd>No. Nothing to sign up for and nothing to download.</dd></div>
-        <div><dt>Can I play against people online?</dt><dd>Not here. There's no chat or online multiplayer. Knockout is single-player, and the invite link is just a link you share with friends you already know.</dd></div>
-        <div><dt>What do you keep about me?</dt><dd>Nothing. Your best score only lives in this tab and disappears when you close it. The game-night name you type goes into the link and nowhere else.</dd></div>
+        <div><dt>Is there a leaderboard or online play?</dt><dd>No. Every drill is single-player and your scores stay on your screen. The squad link is just a link you share with friends you already know.</dd></div>
+        <div><dt>What do you keep about me?</dt><dd>Nothing. Scores live in this tab and disappear when you close it. Full details in our <a href="privacy.html" style="color:var(--lime)">privacy policy</a>.</dd></div>
       </dl>
     </div>
   </section>
@@ -269,145 +173,16 @@
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Playroom. Small free games for your browser.</span>
+    <span>© 2026 Playroom. Free skill drills, made in Singapore.</span>
     <nav aria-label="Footer">
-      <a href="#knockout">Knockout</a>
-      <a href="#table-talk">Table Talk</a>
-      <a href="#breather">Breather</a>
-      <a href="#invite">Game night</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
     </nav>
   </div>
 </footer>
 
 <div class="toast" id="toast" role="status"></div>
-
-<script>
-  const $ = (id) => document.getElementById(id);
-  const toast = (msg) => { const t = $('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2500); };
-
-  // Knockout
-  const tiles = [...document.querySelectorAll('.tile')];
-  let lit = -1, score = 0, best = 0, timeLeft = 0, tick = null;
-  function light() {
-    let next;
-    do { next = Math.floor(Math.random() * 9); } while (next === lit);
-    tiles.forEach((t) => t.classList.remove('on', 'hit'));
-    lit = next;
-    tiles[lit].classList.add('on');
-  }
-  function stop() {
-    clearInterval(tick); tick = null; lit = -1;
-    tiles.forEach((t) => t.classList.remove('on'));
-    if (score > best) { best = score; $('best').textContent = best; }
-    const lines = score === 0 ? 'Zero. The squares win this one.' : score < 10 ? `${score} hits. Warm-up round?` : score < 18 ? `${score} hits. Not bad at all.` : `${score} hits. Show-off.`;
-    $('status').textContent = lines;
-    $('start').textContent = 'Again';
-    $('start').disabled = false;
-  }
-  $('start').addEventListener('click', () => {
-    score = 0; timeLeft = 20;
-    $('start').disabled = true;
-    $('status').textContent = '20s · 0 hits';
-    light();
-    tick = setInterval(() => {
-      timeLeft--;
-      if (timeLeft <= 0) return stop();
-      light();
-      $('status').textContent = `${timeLeft}s · ${score} hits`;
-    }, 1000);
-  });
-  tiles.forEach((t, i) => t.addEventListener('click', () => {
-    if (!tick || i !== lit) return;
-    score++;
-    t.classList.replace('on', 'hit');
-    lit = -1;
-    $('status').textContent = `${timeLeft}s · ${score} hits`;
-    setTimeout(light, 90);
-  }));
-
-  // Table Talk
-  const questions = [
-    'What game did you play way too much as a kid?',
-    'Which game world would you actually want to live in?',
-    'What is the most competitive you have ever been over something that didn\'t matter?',
-    'Who here would be the first one out in a zombie movie?',
-    'What\'s a game everyone loves that you secretly can\'t stand?',
-    'If you could delete one board game rule forever, which one?',
-    'What\'s the longest you have stayed up playing something?',
-    'Which game character are you most like? Be honest.',
-    'What\'s a game you\'d play again for the first time if you could forget it?',
-    'Who taught you to play your favourite game?',
-    'What\'s your go-to snack for a long session?',
-    'What would your victory dance look like?',
-    'Rage quit or quiet suffering?',
-    'What\'s the worst game you\'ve ever enjoyed?',
-    'If tonight were a video game level, what would the boss be?',
-    'Which friend would you trust to carry you in a co-op game?',
-    'What\'s a sound from a game you could recognise instantly?',
-    'What\'s one game you always lose but keep playing anyway?',
-    'Cards, board, console or phone? Pick one for the rest of your life.',
-    'What\'s the most dramatic moment you\'ve seen at a game night?',
-    'Which game would you make a sequel to?',
-    'What\'s your unpopular opinion about Monopoly?',
-    'Who here is the sorest loser? Point at them.',
-    'What should we play next time?'
-  ];
-  let order = [], pos = 0;
-  const shuffle = () => { order = questions.map((_, i) => i).sort(() => Math.random() - .5); pos = 0; };
-  shuffle();
-  $('draw').addEventListener('click', () => {
-    if (pos >= order.length) shuffle();
-    $('question').textContent = questions[order[pos]];
-    $('count').textContent = `${pos + 1} of ${questions.length}`;
-    pos++;
-  });
-
-  // Breather
-  let breathing = null;
-  $('breathe').addEventListener('click', () => {
-    const ball = $('ball'), label = $('breathLabel'), btn = $('breathe');
-    if (breathing) {
-      clearInterval(breathing); breathing = null;
-      ball.classList.remove('big'); label.textContent = 'in · hold · out'; btn.textContent = 'Start';
-      return;
-    }
-    const steps = [['Breathe in', true], ['Hold', true], ['Breathe out', false]];
-    let i = 0, rounds = 0;
-    const step = () => {
-      const [text, big] = steps[i % 3];
-      label.textContent = text; ball.classList.toggle('big', big);
-      i++; if (i % 3 === 0) rounds++;
-      if (rounds >= 5) { clearInterval(breathing); breathing = null; setTimeout(() => { label.textContent = 'Done. Back to it.'; btn.textContent = 'Start'; }, 4000); }
-    };
-    step(); breathing = setInterval(step, 4000);
-    btn.textContent = 'Stop';
-  });
-
-  // Game night invite
-  document.querySelectorAll('.chip').forEach((c) => c.addEventListener('click', () => { $('nightName').value = c.textContent; $('nightName').focus(); }));
-  $('inviteForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = $('nightName').value.trim();
-    if (!name) return;
-    const url = new URL(location.href);
-    url.hash = 'night=' + encodeURIComponent(name);
-    $('outName').textContent = name;
-    $('link').value = url.href;
-    $('out').classList.add('show');
-  });
-  $('copy').addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText($('link').value); toast('Copied. Paste it in the group chat.'); }
-    catch { $('link').select(); toast('Select the link and copy it.'); }
-  });
-  if (location.hash.startsWith('#night=')) {
-    try {
-      const name = decodeURIComponent(location.hash.slice(7));
-      $('inv-title').textContent = 'You\'re invited';
-      $('nightName').value = name;
-      document.getElementById('invite').scrollIntoView();
-      toast(`Someone invited you to "${name}"`);
-    } catch {}
-  }
-</script>
+<script src="combine.js"></script>
 </body>
 </html>

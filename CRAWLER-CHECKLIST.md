@@ -2,15 +2,14 @@
 
 Updated 3 October 2026. These changes prepare the landing page for review; they do not guarantee ad approval.
 
-## What this page offers
+## What this site offers
 
-- Free, single-player reflex game (Knockout), playable in the hero.
-- Conversation prompts to use with friends (Table Talk).
-- Optional four-second breathing timer (Breather), without medical claims.
-- Named invite links for planning a game night.
-- No live community, chat, matchmaking, online multiplayer, payments, wagering, or cash prizes.
+- The Combine: five free, single-player skill drills with a Singapore theme. Doors Closing (reaction), Chope! (aim), Queue Rush (click speed), Hawker Recall (memory), Kopi Order (typing). Finishing all five gives a fun rank.
+- Lobby talk conversation questions, a one-minute breathing timer (no medical claims), and squad invite links.
+- Pages: home, about.html (how scoring works), privacy.html, terms.html, 404.html.
+- No accounts, leaderboards, chat, online multiplayer, payments, wagering, prizes or cash value.
 
-Game descriptions are static HTML and readable without JavaScript. Playing and making invites require JavaScript. Visitors do not need an account. Nothing is stored: the best score lives only in the open tab, and the game-night name goes only into the invite link. All visuals are CSS; the only external requests are Google Fonts.
+Drill descriptions, scoring rules and policies are static HTML and readable without JavaScript. Playing the drills requires JavaScript. Nothing is stored: scores live only in the open tab and the squad name goes only into the link. The only external requests are Google Fonts.
 
 ## Before submitting
 
@@ -24,19 +23,19 @@ Game descriptions are static HTML and readable without JavaScript. Playing and m
 
 ## Suggested ad copy
 
-Title: Free browser reflex game
-Description: Try Knockout: hit the lit square in a 20-second round. No download, signup, or payment needed.
-Destination: https://c88gaming.com/#knockout
+Title: How fast are your reflexes?
+Description: Five free esports-style drills with a Singapore twist. Beat the MRT doors, chope seats, type kopi orders. Get your rank.
+Destination: https://c88gaming.com/
 
-Title: Conversation cards for game night
-Description: Draw a conversation prompt with Table Talk and take turns with friends. Free to use in your browser.
-Destination: https://c88gaming.com/#table-talk
+Title: Free reaction time test
+Description: Wait for the doors to close, then tap. Five tries, averaged in milliseconds. No download, no sign-up.
+Destination: https://c88gaming.com/#arena
 
-Title: Make a game-night invite
-Description: Name your game night, copy the link, and send it to friends through your usual group chat.
-Destination: https://c88gaming.com/#invite
+Title: Lobby questions for your squad
+Description: Draw a question for the voice channel while everyone loads in. Free in your browser.
+Destination: https://c88gaming.com/#lobby
 
-Use the full public HTTPS destination when submitting. Anchor links select a section; they do not open a game automatically.
+Anchor links select a section; they do not start a drill automatically.
 
 ## Official sources
 
