@@ -1,3 +1,6 @@
+<?php
+// Add server-side PHP logic here before the HTML output.
+?>
 <!doctype html>
 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
