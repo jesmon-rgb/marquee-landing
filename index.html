@@ -1,37 +1,413 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/png" href="assets/playroom-logo.png">
 <title>Playroom — Free browser games & game-night ideas</title>
-<link rel="canonical" href="https://c88gaming.com/">
-<meta property="og:url" content="https://c88gaming.com/">
+<meta name="description" content="Play a free 20-second reflex game, draw conversation cards, take a one-minute breather, or make a game-night invite. No download, no account, no payments.">
 <meta name="robots" content="index, follow">
+<link rel="canonical" href="https://c88gaming.com/">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://c88gaming.com/">
 <meta property="og:title" content="Playroom — Free browser games & game-night ideas">
-<meta property="og:description" content="Play a quick reflex game, draw conversation cards, or make an invite for friends. No download or account needed.">
-<meta name="description" content="Play a free 20-second reflex game, draw conversation cards, or make a game-night invite. No download or account needed.">
-<style>
-:root{--bg:#101211;--panel:#1a1d1b;--line:#303530;--muted:#939b94;--lime:#d6fa74}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#f6f8f2;font-family:Arial,Helvetica,sans-serif}button,input{font:inherit}button,a{ -webkit-tap-highlight-color:transparent}button{cursor:pointer}a{color:inherit;text-decoration:none}button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--lime);outline-offset:5px}button{border:0}header{height:88px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 5%;gap:30px}.logo{font-weight:900;font-size:25px;letter-spacing:-1px;display:flex;align-items:center;gap:10px}.logo-mark{display:grid;place-items:center;background:var(--lime);color:#171b13;width:33px;height:33px;border-radius:9px;transform:rotate(-8deg)}nav{display:flex;gap:30px;font-size:14px;color:#afb5af}nav a:first-child{color:var(--lime)}.header-right{display:flex;gap:20px;align-items:center}.online{font-size:12px;color:var(--muted)}.dot{display:inline-block;width:6px;height:6px;background:var(--lime);border-radius:50%;margin-right:7px}.btn{background:var(--lime);color:#19200e;padding:14px 22px;border-radius:8px;font-weight:700;font-size:13px}.btn:hover{background:#e5ff9c;transform:translateY(-1px)}.outline{background:transparent;border:1px solid #545e4b;color:#f4f7ee}.outline:hover{background:#30372b}main{max-width:1440px;margin:auto;padding:30px 5% 0}.hero{position:relative;min-height:460px;border-radius:18px;overflow:hidden;background:#232c26;display:flex;padding:58px 48px;align-items:center}.hero:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#1b241fed 0%,#1b241fe0 35%,transparent 75%);pointer-events:none}.hero-art{position:absolute;inset:0;background:linear-gradient(0deg,#17241b55,#17241b11),url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1800&q=85') center 55%/cover}.hero-copy{position:relative;z-index:1;max-width:570px}.eyebrow{color:var(--lime);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:10px}.eyebrow:before{content:'';height:1px;width:24px;background:var(--lime)}h1{font-size:clamp(44px,5.5vw,76px);letter-spacing:-4px;line-height:1.03;margin:22px 0}h1 em{color:var(--lime);font-style:normal}.hero p{color:#bec8bd;font-size:15px;line-height:1.7;max-width:360px;margin-bottom:26px}.actions{display:flex;gap:12px}.hero-foot{display:flex;align-items:center;gap:12px;margin-top:30px;font-size:11px;color:#c0c9be}.avatars{display:flex;padding-left:6px}.avatar{width:29px;height:29px;border-radius:50%;border:2px solid #263224;margin-left:-6px;background:#79876e;display:grid;place-items:center;font-size:14px}.hero-sticker{position:absolute;right:28px;bottom:25px;z-index:1;background:#101812aa;backdrop-filter:blur(10px);border:1px solid #74816466;border-radius:10px;padding:14px 18px;font-size:11px}.hero-sticker b{display:block;font-size:14px;margin-bottom:6px}.section-head{display:flex;align-items:center;justify-content:space-between;margin:38px 0 20px;gap:16px}h2{font-size:24px;letter-spacing:-.7px;margin:0}.subtitle{font-size:13px;color:var(--muted);margin:8px 0 0}.text-link{background:none;color:var(--lime);font-size:12px;padding:10px 0}.filters{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;gap:15px}.tabs{display:flex;gap:8px;flex-wrap:wrap}.tab{border:1px solid var(--line);background:transparent;color:#afb6ae;padding:10px 17px;border-radius:7px;font-size:12px}.tab.active{background:var(--lime);color:#202516;border-color:var(--lime)}.search{background:var(--panel);border:1px solid var(--line);border-radius:7px;color:white;padding:11px 14px;width:210px;font-size:12px}.games{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);transition:transform .2s}.card:hover{transform:translateY(-4px)}.cover{height:180px;position:relative;overflow:hidden;background:var(--color)}.cover img{width:100%;height:100%;object-fit:cover;transition:transform .5s;opacity:.85}.card:hover img{transform:scale(1.06)}.badge{position:absolute;top:12px;left:12px;background:#151b18c9;backdrop-filter:blur(8px);border:1px solid #ffffff26;padding:6px 9px;border-radius:5px;font-size:9px;font-weight:700;letter-spacing:1px}.card-body{padding:17px}.card h3{font-size:17px;margin:0 0 7px;letter-spacing:-.3px}.tags{font-size:11px;color:var(--muted)}.card-bottom{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:14px;margin-top:16px;font-size:10px;color:#b1baad}.play{background:#30382b;color:var(--lime);padding:8px 12px;border-radius:5px;font-size:11px;font-weight:bold}.lower{display:grid;grid-template-columns:1.65fr 1fr;gap:26px;margin-bottom:45px}.room{display:flex;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line);padding:18px;border-radius:10px;margin-bottom:10px}.room-icon{width:44px;height:44px;border-radius:10px;background:#39304b;display:grid;place-items:center;font-size:22px}.room-info{flex:1}.room h3{font-size:14px;margin:0 0 6px}.room p{font-size:11px;color:var(--muted);margin:0}.join{border:1px solid var(--line);border-radius:6px;padding:9px 16px;background:transparent;color:var(--lime);font-size:11px}.community{background:#d6fa74;color:#202716;border-radius:12px;padding:28px;position:relative;overflow:hidden;min-height:205px}.community .small{font-size:10px;letter-spacing:1.5px;font-weight:bold}.community h3{font-size:30px;letter-spacing:-1px;line-height:1.1;max-width:230px;margin:15px 0 10px}.community p{font-size:12px;line-height:1.6;max-width:260px}.community button{background:#202716;color:#e2ffad;border-radius:7px;padding:12px 17px;font-size:11px;margin-top:7px}.orb{position:absolute;width:130px;height:130px;right:-45px;top:30px;border:22px solid #a6c55a;border-radius:50%;transform:rotate(-30deg)}footer{border-top:1px solid var(--line);padding:25px 5%;display:flex;justify-content:space-between;color:var(--muted);font-size:11px;gap:20px}.empty{color:var(--muted);padding:30px;grid-column:1/-1}dialog{background:#1a1f19;color:#f5f8ee;border:1px solid #56624a;border-radius:16px;padding:30px;width:min(480px,90vw)}dialog::backdrop{background:#000b;backdrop-filter:blur(5px)}dialog h2{margin-bottom:12px}dialog p{color:#a9b5a3;line-height:1.6;font-size:14px}.close{float:right;background:transparent;color:#aab6a4;font-size:22px}#gameBoard{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:20px 0}.tile{height:85px;border-radius:8px;background:#2a3325;color:var(--lime);font-size:34px}.tile:hover{background:#3a482f}.modal-actions{display:flex;gap:10px;align-items:center}#nickname{width:100%;padding:14px;background:#252e20;color:white;border:1px solid #49573c;border-radius:7px;margin:8px 0 20px}#toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);background:var(--lime);color:#202716;padding:15px 24px;border-radius:9px;z-index:9;box-shadow:0 10px 40px #0008;font-size:13px}#toast:empty{display:none}@media(min-width:1500px){header{padding:0 calc((100% - 1296px)/2)}}@media(max-width:900px){nav{gap:18px}.online{display:none}.games{grid-template-columns:repeat(2,1fr)}.hero{padding:40px 30px}.hero-sticker{display:none}.lower{grid-template-columns:1fr 1fr}.cover{height:200px}}@media(max-width:600px){header{height:73px;padding:0 5%}.logo{font-size:21px}nav{display:none}.header-right .btn{padding:11px 15px}main{padding-top:20px}.hero{padding:32px 24px;min-height:440px}h1{letter-spacing:-2.5px}.hero:after{background:#16211dcc}.hero p{font-size:14px}.games{gap:12px}.cover{height:140px}.card-body{padding:13px}.card h3{font-size:15px}.card-bottom{gap:5px;font-size:9px}.filters{align-items:stretch;flex-direction:column}.search{width:100%}.tab{padding:9px 12px}.lower{grid-template-columns:1fr;gap:0}.section-head{margin-top:30px}h2{font-size:21px}footer{flex-direction:column}.hero-foot{font-size:10px}.actions .btn{padding:13px 17px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+<meta property="og:description" content="A 20-second reflex game, conversation cards for friends, and a game-night invite maker. Free, in your browser.">
 
-/* Quieter typography and fewer decorative effects. */
-.logo{letter-spacing:-.7px}.logo-mark{transform:none;border-radius:5px}.eyebrow{letter-spacing:1px}.eyebrow:before{display:none}h1{font-size:clamp(46px,5.5vw,76px);letter-spacing:-3px}.hero-sticker{backdrop-filter:none}.hero-foot{margin-top:24px}.hero .dot,.online .dot{display:none}.card:hover{transform:none}.card:hover img{transform:none}.badge{letter-spacing:.5px;backdrop-filter:none}.game-description{font-size:12px;color:#b2bbb0;line-height:1.6;min-height:77px;margin:12px 0 0}.orb{display:none}.about{margin:0 0 40px;padding-top:25px;border-top:1px solid var(--line)}.faq{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:12px}details{border:1px solid var(--line);padding:18px;border-radius:8px;background:var(--panel)}summary{cursor:pointer;font-size:14px}details p{font-size:13px;line-height:1.7;color:#b2bbb0;margin-bottom:0}details .join{margin-top:15px}footer a:hover{color:var(--lime)}@media(max-width:600px){.faq{grid-template-columns:1fr}.game-description{min-height:115px}.hero{min-height:430px}}
-.brand-icon{display:block;object-fit:contain;width:40px;height:40px;flex-shrink:0}.brand-icon.footer-icon{width:28px;height:28px}
-</style></head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=IBM+Plex+Mono:wght@500&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --paper: #f4f1e8;
+    --paper-2: #ebe6d8;
+    --ink: #1b1b18;
+    --ink-soft: #55534b;
+    --line: #1b1b18;
+    --lime: #d4f76b;
+    --tomato: #e8553e;
+    --display: "Bricolage Grotesque", "Arial Black", sans-serif;
+    --body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 400 17px/1.6 var(--body); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  button, input { font: inherit; color: inherit; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 800; line-height: 1; margin: 0; letter-spacing: -0.02em; }
+  mark { background: linear-gradient(transparent 55%, var(--lime) 55%); color: inherit; padding: 0 .08em; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .note { font-family: var(--mono); font-size: 13px; color: var(--ink-soft); }
+  :focus-visible { outline: 3px solid var(--tomato); outline-offset: 3px; }
+
+  .btn { display: inline-block; background: var(--ink); color: var(--paper); border: 2px solid var(--ink); border-radius: 999px; padding: 13px 24px; font-weight: 600; font-size: 16px; text-decoration: none; cursor: pointer; }
+  .btn:hover { background: var(--tomato); border-color: var(--tomato); }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn.ghost:hover { background: var(--ink); color: var(--paper); }
+  .btn:disabled { opacity: .45; cursor: default; background: var(--ink); border-color: var(--ink); }
+
+  /* Header */
+  header { border-bottom: 2px solid var(--line); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 24px; }
+  .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; font-family: var(--display); font-weight: 800; font-size: 24px; }
+  .logo img { width: 34px; height: 34px; }
+  nav { display: flex; gap: 28px; font-size: 15px; }
+  nav a { text-decoration: none; }
+  nav a:hover { text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 2px; }
+
+  /* Hero with the playable game */
+  .hero { padding: 64px 0 72px; border-bottom: 2px solid var(--line); }
+  .hero .wrap { display: grid; grid-template-columns: 1fr 440px; gap: 64px; align-items: center; }
+  .hero h1 { font-size: clamp(52px, 7.5vw, 96px); }
+  .hero p.lead { font-size: 19px; max-width: 470px; margin: 24px 0 28px; color: var(--ink-soft); }
+  .hero ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; }
+  .hero li::before { content: "✓ "; color: var(--tomato); font-weight: 600; }
+  .hero li { font-size: 15px; }
+
+  .machine { background: var(--ink); color: var(--paper); border-radius: 22px; padding: 22px; }
+  .machine-top { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 13px; color: #b9b6aa; margin-bottom: 16px; }
+  .machine-top b { color: var(--lime); font-weight: 500; }
+  .board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .tile { aspect-ratio: 1; border: 0; border-radius: 12px; background: #2f2f2a; cursor: pointer; transition: background .08s; }
+  .tile.on { background: var(--lime); }
+  .tile.hit { background: var(--tomato); }
+  .machine-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 18px; gap: 12px; }
+  .machine .btn { background: var(--lime); color: var(--ink); border-color: var(--lime); }
+  .machine .btn:hover { background: #e6ff9c; border-color: #e6ff9c; }
+  .machine-msg { font-size: 14px; color: #d8d5ca; }
+
+  /* Sections */
+  section.block { padding: 88px 0; border-bottom: 2px solid var(--line); }
+  .block .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .block h2 { font-size: clamp(40px, 5vw, 64px); margin: 10px 0 18px; }
+  .block p { color: var(--ink-soft); max-width: 460px; margin: 0 0 24px; }
+  .block.alt { background: var(--paper-2); }
+
+  /* Table Talk card */
+  .deck { position: relative; height: 340px; }
+  .deck .card { position: absolute; inset: 0; background: #fffdf6; border: 2px solid var(--line); border-radius: 18px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; }
+  .deck .card.back1 { transform: rotate(4deg) translate(10px, 6px); background: var(--lime); }
+  .deck .card.back2 { transform: rotate(-3deg) translate(-6px, 4px); background: var(--paper-2); }
+  .deck .card.front { transform: rotate(-1deg); }
+  .card .q { color: var(--ink); max-width: none; margin: 0; font-family: var(--display); font-weight: 800; font-size: clamp(26px, 3vw, 34px); line-height: 1.15; }
+  .card .meta { display: flex; justify-content: space-between; }
+
+  /* Breather */
+  .breath { display: grid; place-items: center; height: 360px; position: relative; }
+  .ring { position: absolute; width: 300px; height: 300px; border: 2px dashed var(--ink); border-radius: 50%; }
+  .ball { width: 120px; height: 120px; border-radius: 50%; background: var(--lime); border: 2px solid var(--ink); transition: transform 4s ease-in-out; }
+  .ball.big { transform: scale(2.4); }
+  .breath-label { position: absolute; bottom: 0; font-family: var(--mono); font-size: 15px; }
+
+  /* Invite maker */
+  .ticket { background: #fffdf6; border: 2px solid var(--line); border-radius: 18px; padding: 28px; }
+  .ticket label { display: block; font-weight: 600; margin-bottom: 8px; }
+  .ticket input { width: 100%; padding: 14px 16px; border: 2px solid var(--line); border-radius: 12px; background: var(--paper); margin-bottom: 16px; }
+  .ticket .row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .ticket .out { margin-top: 20px; padding-top: 20px; border-top: 2px dashed var(--line); display: none; }
+  .ticket .out.show { display: block; }
+  .ticket .out p { margin: 0 0 10px; color: var(--ink); }
+  .ideas { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .chip { border: 2px solid var(--line); background: transparent; border-radius: 999px; padding: 6px 14px; font-size: 14px; cursor: pointer; }
+  .chip:hover { background: var(--lime); }
+
+  /* Fine print */
+  .fine { padding: 80px 0; }
+  .fine h2 { font-size: clamp(32px, 4vw, 48px); margin-bottom: 32px; }
+  .fine dl { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 56px; margin: 0; }
+  .fine dt { font-weight: 600; margin-bottom: 6px; }
+  .fine dd { margin: 0; color: var(--ink-soft); }
+
+  footer { border-top: 2px solid var(--line); padding: 28px 0 36px; font-size: 14px; color: var(--ink-soft); }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  footer nav { gap: 20px; }
+
+  .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: var(--ink); color: var(--paper); padding: 12px 20px; border-radius: 999px; font-size: 14px; opacity: 0; pointer-events: none; transition: opacity .2s; }
+  .toast.show { opacity: 1; }
+
+  @media (max-width: 900px) {
+    .hero .wrap, .block .wrap { grid-template-columns: 1fr; gap: 40px; }
+    .machine { max-width: 440px; }
+    .block .visual { order: 2; }
+    .fine dl { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 16px; }
+    nav.main { display: none; }
+    .hero { padding: 40px 0 56px; }
+    section.block { padding: 64px 0; }
+    .deck { height: 300px; }
+    .ring { width: 240px; height: 240px; }
+    .ball { width: 96px; height: 96px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .ball { transition: none; } }
+</style>
+</head>
 <body>
-<header><a class="logo" href="#"><img class="brand-icon" src="assets/playroom-logo.png" width="40" height="40" alt="">PLAYROOM<span style="color:var(--lime)">.</span></a><nav aria-label="Main navigation"><a href="#discover">Discover</a><a href="#rooms">Game-night ideas</a><a href="#game-night">Game nights</a></nav><div class="header-right"><span class="online"><span class="dot"></span>No account needed</span><button class="btn" onclick="openProfile()" id="profileButton">Set nickname</button></div></header>
-<main><section class="hero"><div class="hero-art" role="img" aria-label="An atmospheric green forest adventure"></div><div class="hero-copy"><div class="eyebrow">Browser games & game-night ideas</div><h1>Got a few<br><em>minutes?</em></h1><p>Try a quick reflex game, pull a conversation card, or send your friends a game-night invite. Everything here is free to use.</p><div class="actions"><a class="btn" href="#discover">Pick something to play</a><a class="btn outline" href="#rooms">Plan a game night</a></div><div class="hero-foot">Free to play. No download. No cash prizes.</div></div><div class="hero-sticker"><b><span class="dot"></span>20 seconds. How many hits?</b>Try Neon Knockout below</div></section>
-<section id="discover"><div class="section-head"><div><h2>Pick a game.</h2><p class="subtitle">A quick round for you. A few ideas for your friends.</p></div><button class="text-link" onclick="resetFilters()">Show all</button></div><div class="filters"><div class="tabs" role="group" aria-label="Game categories"><button class="tab active" data-category="All">All games</button><button class="tab" data-category="Party">✧ Party</button><button class="tab" data-category="Adventure">⌁ Adventure</button><button class="tab" data-category="Competitive">⚡ Competitive</button><button class="tab" data-category="Chill">☁ Chill</button></div><input class="search" type="search" placeholder="Search activities…" aria-label="Search games"></div><div class="games" id="games">
-<article class="card"><div class="cover" style="--color:#703594"><img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=650&q=80" alt="" loading="lazy"><span class="badge">QUICK PLAY</span></div><div class="card-body"><h3>Neon Knockout</h3><div class="tags">Reflex challenge · Solo</div><p class="game-description">A quick reflex challenge. Hit the glowing tile before it moves!</p><div class="card-bottom"><span>Competitive activity</span><button class="play" onclick="openGame('Neon Knockout')">Play</button></div></div></article>
-<article class="card"><div class="cover" style="--color:#2c6451"><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=650&q=80" alt="" loading="lazy"><span class="badge">INVITE IDEA</span></div><div class="card-body"><h3>Wildside</h3><div class="tags">Adventure night · Invite planner</div><p class="game-description">Make an adventure-night invite to share with your own friends. This is a planner, not a playable adventure game.</p><div class="card-bottom"><span>Adventure activity</span><button class="play" onclick="openGame('Wildside')">Make invite</button></div></div></article>
-<article class="card"><div class="cover" style="--color:#a47740"><img src="https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=650&q=80" alt="" loading="lazy"><span class="badge">PARTY STARTER</span></div><div class="card-body"><h3>Table Talk</h3><div class="tags">Conversation cards · 2+ friends</div><p class="game-description">Get everyone talking with a randomly drawn conversation prompt.</p><div class="card-bottom"><span>Party activity</span><button class="play" onclick="openGame('Table Talk')">Play</button></div></div></article>
-<article class="card"><div class="cover" style="--color:#507368"><img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=650&q=80" alt="" loading="lazy"><span class="badge">TAKE A BREATHER</span></div><div class="card-body"><h3>Slow Sunday</h3><div class="tags">Four-second breathing timer</div><p class="game-description">An optional breathing timer: breathe in, hold, and breathe out for four seconds each. Stop whenever you like.</p><div class="card-bottom"><span>Chill activity</span><button class="play" onclick="openGame('Slow Sunday')">Play</button></div></div></article>
-</div><noscript><p>Game descriptions are available above. Enable JavaScript to play the games or make an invite.</p></noscript></section>
-<div class="lower"><section id="rooms"><div class="section-head"><div><h2>Get a game night going.</h2><p class="subtitle">Start with one of these invite ideas, then share it with friends.</p></div><span class="text-link">Invite ideas</span></div><div class="room"><div class="room-icon">🎮</div><div class="room-info"><h3>The after-hours arcade</h3><p>A name for your next party-game session</p></div><button class="join" data-room="The after-hours arcade">Use idea</button></div><div class="room"><div class="room-icon" style="background:#334233">🌱</div><div class="room-info"><h3>Cozy corner</h3><p>An invite idea for a relaxed evening</p></div><button class="join" data-room="Cozy corner">Use idea</button></div></section><section id="game-night"><div class="section-head"><div><h2>Bring your friends.</h2><p class="subtitle">Make an invite in a couple of clicks.</p></div></div><div class="community"><span class="small">GAME-NIGHT PLANNER</span><h3>Who’s free<br>tonight?</h3><p>Name your game night and copy the invite. Use your usual group chat to work out the time and what to play.</p><button onclick="createRoom()">Make an invite</button><div class="orb" aria-hidden="true"></div></div></section></div>
-<section class="about" id="about"><h2>A few things to know.</h2><div class="faq"><details><summary>What can I do here?</summary><p>Neon Knockout is a single-player reflex game. Table Talk draws conversation prompts for friends. Slow Sunday is a simple breathing timer. Wildside makes an adventure-night invite; it is not a playable adventure game.</p></details><details><summary>Does it cost anything?</summary><p>These activities are free. There are no payments, bets, cash prizes, or in-game purchases.</p></details><details><summary>Can I chat or play online with other people?</summary><p>There is no live chat, matchmaking, or online multiplayer here. Share an invite with people you know and use your usual chat or game to meet up.</p></details><details id="privacy"><summary>Privacy & saved data</summary><p>Your nickname and most recent game-night name are stored in this browser using local storage. This page has no account system, payment forms, or analytics scripts. Invite links include the game-night name, so leave personal information out of it. Photos load from Unsplash, which receives normal image requests from your browser. Your hosting provider may also keep standard request logs.</p><button class="join" onclick="clearSavedData()">Clear saved nickname and invite</button></details></div></section>
-</main><footer><a href="#" class="logo" style="font-size:16px" aria-label="Playroom home"><img class="brand-icon footer-icon" src="assets/playroom-logo.png" width="28" height="28" alt="">PLAYROOM.</a><a href="#about">About these activities</a><a href="#privacy">Privacy & saved data</a><span>© 2026 Playroom · Free browser activities</span></footer>
-<dialog id="modal"><button class="close" onclick="modal.close()" aria-label="Close dialog">×</button><div id="modalContent"></div></dialog><div id="toast" role="status"></div>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="/"><img src="assets/playroom-logo.png" alt="" width="34" height="34">Playroom</a>
+    <nav class="main" aria-label="Main">
+      <a href="#knockout">Knockout</a>
+      <a href="#table-talk">Table Talk</a>
+      <a href="#breather">Breather</a>
+      <a href="#invite">Game night</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="knockout" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div>
+        <h1 id="hero-title">Got <mark>20 seconds?</mark></h1>
+        <p class="lead">Hit the lit square. It jumps somewhere else every second, and every hit moves it too. See how many you can get before the clock runs out.</p>
+        <ul>
+          <li>Free</li>
+          <li>Plays in your browser</li>
+          <li>No sign-up</li>
+        </ul>
+      </div>
+
+      <div class="machine" aria-label="Knockout, a reflex game">
+        <div class="machine-top"><span>KNOCKOUT</span><span>best <b id="best">–</b></span></div>
+        <div class="board" id="board">
+          <button class="tile" aria-label="Square 1"></button><button class="tile on" aria-label="Square 2"></button><button class="tile" aria-label="Square 3"></button>
+          <button class="tile" aria-label="Square 4"></button><button class="tile" aria-label="Square 5"></button><button class="tile" aria-label="Square 6"></button>
+          <button class="tile" aria-label="Square 7"></button><button class="tile" aria-label="Square 8"></button><button class="tile" aria-label="Square 9"></button>
+        </div>
+        <div class="machine-foot">
+          <span class="machine-msg" id="status" role="status">Ready when you are.</span>
+          <button class="btn" id="start">Start</button>
+        </div>
+        <noscript><p class="machine-msg">Knockout needs JavaScript turned on to play.</p></noscript>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt" id="table-talk" aria-labelledby="tt-title">
+    <div class="wrap">
+      <div>
+        <span class="note">For 2 or more people</span>
+        <h2 id="tt-title">Table Talk</h2>
+        <p>Conversation cards for when the group goes quiet. Draw one, read it out, go around the table. Skipping is allowed. Lying is encouraged.</p>
+        <button class="btn" id="draw">Draw a card</button>
+      </div>
+      <div class="visual">
+        <div class="deck">
+          <div class="card back1" aria-hidden="true"></div>
+          <div class="card back2" aria-hidden="true"></div>
+          <div class="card front">
+            <span class="note">Table Talk</span>
+            <p class="q" id="question" aria-live="polite">What game did you play way too much as a kid?</p>
+            <div class="meta note"><span id="count">1 of 24</span><span>Playroom</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="breather" aria-labelledby="br-title">
+    <div class="wrap">
+      <div class="visual breath" aria-hidden="true">
+        <div class="ring"></div>
+        <div class="ball" id="ball"></div>
+        <span class="breath-label" id="breathLabel">in · hold · out</span>
+      </div>
+      <div>
+        <span class="note">One minute</span>
+        <h2 id="br-title">Breather</h2>
+        <p>Lost three rounds in a row? Follow the circle. Breathe in while it grows, hold, then breathe out while it shrinks, four seconds each. Stop whenever you like.</p>
+        <button class="btn" id="breathe">Start</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt" id="invite" aria-labelledby="inv-title">
+    <div class="wrap">
+      <div>
+        <span class="note">Planning, not hosting</span>
+        <h2 id="inv-title">Get the group together</h2>
+        <p>Give your game night a name and copy a link to drop in the group chat. Sort out the time and the game there. This just gets the conversation started.</p>
+      </div>
+      <div class="ticket">
+        <div class="ideas" aria-label="Name ideas">
+          <button class="chip" type="button">Friday arcade</button>
+          <button class="chip" type="button">Couch co-op</button>
+          <button class="chip" type="button">Loser buys snacks</button>
+        </div>
+        <form id="inviteForm">
+          <label for="nightName">Name your game night</label>
+          <input id="nightName" maxlength="60" placeholder="e.g. Friday arcade" required>
+          <button class="btn">Make the link</button>
+        </form>
+        <div class="out" id="out">
+          <p><strong id="outName"></strong> is on.</p>
+          <div class="row">
+            <input id="link" readonly aria-label="Invite link" style="margin:0;flex:1;min-width:0">
+            <button class="btn ghost" id="copy" type="button">Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fine" aria-labelledby="fine-title">
+    <div class="wrap">
+      <h2 id="fine-title">The fine print (it's short)</h2>
+      <dl>
+        <div><dt>Does it cost anything?</dt><dd>No. There are no payments, in-game purchases, bets or prizes. It's free.</dd></div>
+        <div><dt>Do I need an account?</dt><dd>No. Nothing to sign up for and nothing to download.</dd></div>
+        <div><dt>Can I play against people online?</dt><dd>Not here. There's no chat or online multiplayer. Knockout is single-player, and the invite link is just a link you share with friends you already know.</dd></div>
+        <div><dt>What do you keep about me?</dt><dd>Nothing. Your best score only lives in this tab and disappears when you close it. The game-night name you type goes into the link and nowhere else.</dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Playroom. Small free games for your browser.</span>
+    <nav aria-label="Footer">
+      <a href="#knockout">Knockout</a>
+      <a href="#table-talk">Table Talk</a>
+      <a href="#breather">Breather</a>
+      <a href="#invite">Game night</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
 <script>
-const catalog=[{name:'Neon Knockout',category:'Competitive',label:'QUICK PLAY',desc:'Reflex challenge · Solo',color:'#703594',image:'photo-1550745165-9bc0b252726f',detail:'A quick reflex challenge. Hit the glowing tile before it moves!'},{name:'Wildside',category:'Adventure',label:'INVITE IDEA',desc:'Adventure night · Invite planner',color:'#2c6451',image:'photo-1441974231531-c6227db76b6e',detail:'Make an adventure-night invite to share with your own friends. This is a planner, not a playable adventure game.'},{name:'Table Talk',category:'Party',label:'PARTY STARTER',desc:'Conversation cards · 2+ friends',color:'#a47740',image:'photo-1610890716171-6b1bb98ffd09',detail:'Get everyone talking with a randomly drawn conversation prompt.'},{name:'Slow Sunday',category:'Chill',label:'TAKE A BREATHER',desc:'Four-second breathing timer',color:'#507368',image:'photo-1472396961693-142e6e269027',detail:'An optional breathing timer: breathe in, hold, and breathe out for four seconds each. Stop whenever you like.'}];let category='All',query='',gameTimer=null,score=0,active=-1;
-const modal=document.getElementById('modal'),content=document.getElementById('modalContent');function render(){const filtered=catalog.filter(g=>(category==='All'||g.category===category)&&g.name.toLowerCase().includes(query.toLowerCase()));document.getElementById('games').innerHTML=filtered.map(g=>`<article class="card"><div class="cover" style="--color:${g.color}"><img src="https://images.unsplash.com/${g.image}?auto=format&fit=crop&w=650&q=80" alt="${g.category} game atmosphere" loading="lazy"><span class="badge">${g.label}</span></div><div class="card-body"><h3>${g.name}</h3><div class="tags">${g.desc}</div><p class="game-description">${g.detail}</p><div class="card-bottom"><span>${g.category} activity</span><button class="play" onclick="openGame('${g.name}')">${g.category==='Adventure'?'Make invite':'Play'} ↗</button></div></div></article>`).join('')||'<p class="empty">No games found. Try another name or category.</p>'}document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{category=b.dataset.category;document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t===b));render()}));document.querySelector('.search').addEventListener('input',e=>{query=e.target.value;render()});function resetFilters(){category='All';query='';document.querySelector('.search').value='';document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.category==='All'));render()}function show(html){clearInterval(gameTimer);content.innerHTML=html;if(!modal.open)modal.showModal()}function toast(message){document.getElementById('toast').textContent=message;setTimeout(()=>document.getElementById('toast').textContent='',4000)}function openProfile(){show('<div class="eyebrow">Make it yours</div><h2 style="margin-top:20px">What should we call you?</h2><p>Choose a nickname for this browser. No signup needed.</p><form id="profileForm"><label for="nickname">Your nickname</label><input id="nickname" maxlength="24" placeholder="e.g. PixelPal" required><button class="btn">Save nickname</button></form>');document.getElementById('profileForm').onsubmit=e=>{e.preventDefault();const name=document.getElementById('nickname').value.trim();if(!name)return;localStorage.setItem('playroom-name',name);document.getElementById('profileButton').textContent=name+' ✧';modal.close();toast('Welcome to Playroom, '+name+'!')}}function createRoom(room){show('<h2>Make a game-night invite</h2><p>Name your night and share a link. The name is saved on this device. The link does not create a live multiplayer room.</p><form id="roomForm"><label for="nickname">Game-night name</label><input id="nickname" maxlength="60" placeholder="Friday night crew" required><button class="btn">Create invite ↗</button></form>');document.getElementById('nickname').value=room||'';document.getElementById('roomForm').onsubmit=e=>{e.preventDefault();const name=document.getElementById('nickname').value.trim();if(!name)return;const link=new URL(location.href);link.hash='room='+encodeURIComponent(name);localStorage.setItem('playroom-room',name);show('<h2>Game night is on.</h2><p id="roomTitle"></p><p>This invite shares your room name. Pick your favorite voice chat or game to meet up.</p><input class="search" id="invite" style="width:100%" readonly aria-label="Room invite link"><button class="btn" style="margin-top:20px" id="copyInvite">Copy invite ↗</button>');document.getElementById('roomTitle').textContent=name;document.getElementById('invite').value=link.href;document.getElementById('copyInvite').onclick=async()=>{try{await navigator.clipboard.writeText(link.href);toast('Invite copied!')}catch{document.getElementById('invite').select();toast('Select and copy your invite link.')}}}}document.querySelectorAll('.join').forEach(b=>b.onclick=()=>createRoom(b.dataset.room));function openGame(name){const g=catalog.find(g=>g.name===name);if(g.category==='Adventure'){createRoom('Wildside explorers');return}show('<h2>'+g.name+'</h2><p>'+g.detail+'</p><div id="experience"></div>');if(g.category==='Competitive'){score=0;document.getElementById('experience').innerHTML='<p id="score" role="status">Score: 0 · 20 seconds</p><div id="gameBoard">'+Array.from({length:9},(_,i)=>'<button class="tile" aria-label="Tile '+(i+1)+'" onclick="hit('+i+')"></button>').join('')+'</div><button class="btn" id="start" onclick="startGame()">Start challenge ↗</button>'}else if(g.category==='Party'){document.getElementById('experience').innerHTML='<p id="prompt" style="font-size:24px;color:var(--lime);padding:20px 0"></p><button class="btn" onclick="nextPrompt()">Draw another card ↗</button>';nextPrompt()}else{document.getElementById('experience').innerHTML='<p id="breath" style="font-size:32px;color:var(--lime);text-align:center;padding:30px">Ready to unwind?</p><button class="btn" onclick="breathe()">Start breathing ↗</button>'}}function nextPrompt(){const prompts=['Which game world would you live in for a week?','What’s your most unforgettable gaming moment?','What would your very specific superpower be?','Who in this room would survive a zombie apocalypse?','What game deserves a sequel?','What was the first game you fell in love with?'];document.getElementById('prompt').textContent=prompts[Math.floor(Math.random()*prompts.length)]}function moveTile(){active=Math.floor(Math.random()*9);document.querySelectorAll('.tile').forEach((b,i)=>b.textContent=i===active?'✦':'')}function startGame(){clearInterval(gameTimer);score=0;let left=20;document.getElementById('start').disabled=true;document.getElementById('score').textContent='Score: 0 · 20 seconds';moveTile();gameTimer=setInterval(()=>{left--;document.getElementById('score').textContent='Score: '+score+' · '+left+' seconds';if(left===0){clearInterval(gameTimer);active=-1;document.querySelectorAll('.tile').forEach(b=>b.textContent='');document.getElementById('score').textContent='Nice round! Final score: '+score;document.getElementById('start').disabled=false;document.getElementById('start').textContent='Play again ↗'}else moveTile()},1000)}function hit(i){if(i===active){score++;active=-1;moveTile();document.getElementById('score').textContent=document.getElementById('score').textContent.replace(/Score: \d+/,'Score: '+score)}}function breathe(){clearInterval(gameTimer);let step=0;const stages=['Breathe in · 4 seconds','Hold · 4 seconds','Breathe out · 4 seconds'];document.getElementById('breath').textContent=stages[0];gameTimer=setInterval(()=>{step++;document.getElementById('breath').textContent=stages[step%3]},4000)}modal.addEventListener('close',()=>{clearInterval(gameTimer);active=-1});modal.addEventListener('click',e=>{if(e.target===modal){const r=modal.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)modal.close()}});function clearSavedData(){localStorage.removeItem('playroom-name');localStorage.removeItem('playroom-room');document.getElementById('profileButton').textContent='Set nickname';toast('Saved nickname and invite cleared.')}const saved=localStorage.getItem('playroom-name');if(saved)document.getElementById('profileButton').textContent=saved+' ✧';render();if(location.hash.startsWith('#room=')){try{createRoom(decodeURIComponent(location.hash.slice(6)))}catch{}}
-</script></body></html>
+  const $ = (id) => document.getElementById(id);
+  const toast = (msg) => { const t = $('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2500); };
+
+  // Knockout
+  const tiles = [...document.querySelectorAll('.tile')];
+  let lit = -1, score = 0, best = 0, timeLeft = 0, tick = null;
+  function light() {
+    let next;
+    do { next = Math.floor(Math.random() * 9); } while (next === lit);
+    tiles.forEach((t) => t.classList.remove('on', 'hit'));
+    lit = next;
+    tiles[lit].classList.add('on');
+  }
+  function stop() {
+    clearInterval(tick); tick = null; lit = -1;
+    tiles.forEach((t) => t.classList.remove('on'));
+    if (score > best) { best = score; $('best').textContent = best; }
+    const lines = score === 0 ? 'Zero. The squares win this one.' : score < 10 ? `${score} hits. Warm-up round?` : score < 18 ? `${score} hits. Not bad at all.` : `${score} hits. Show-off.`;
+    $('status').textContent = lines;
+    $('start').textContent = 'Again';
+    $('start').disabled = false;
+  }
+  $('start').addEventListener('click', () => {
+    score = 0; timeLeft = 20;
+    $('start').disabled = true;
+    $('status').textContent = '20s · 0 hits';
+    light();
+    tick = setInterval(() => {
+      timeLeft--;
+      if (timeLeft <= 0) return stop();
+      light();
+      $('status').textContent = `${timeLeft}s · ${score} hits`;
+    }, 1000);
+  });
+  tiles.forEach((t, i) => t.addEventListener('click', () => {
+    if (!tick || i !== lit) return;
+    score++;
+    t.classList.replace('on', 'hit');
+    lit = -1;
+    $('status').textContent = `${timeLeft}s · ${score} hits`;
+    setTimeout(light, 90);
+  }));
+
+  // Table Talk
+  const questions = [
+    'What game did you play way too much as a kid?',
+    'Which game world would you actually want to live in?',
+    'What is the most competitive you have ever been over something that didn\'t matter?',
+    'Who here would be the first one out in a zombie movie?',
+    'What\'s a game everyone loves that you secretly can\'t stand?',
+    'If you could delete one board game rule forever, which one?',
+    'What\'s the longest you have stayed up playing something?',
+    'Which game character are you most like? Be honest.',
+    'What\'s a game you\'d play again for the first time if you could forget it?',
+    'Who taught you to play your favourite game?',
+    'What\'s your go-to snack for a long session?',
+    'What would your victory dance look like?',
+    'Rage quit or quiet suffering?',
+    'What\'s the worst game you\'ve ever enjoyed?',
+    'If tonight were a video game level, what would the boss be?',
+    'Which friend would you trust to carry you in a co-op game?',
+    'What\'s a sound from a game you could recognise instantly?',
+    'What\'s one game you always lose but keep playing anyway?',
+    'Cards, board, console or phone? Pick one for the rest of your life.',
+    'What\'s the most dramatic moment you\'ve seen at a game night?',
+    'Which game would you make a sequel to?',
+    'What\'s your unpopular opinion about Monopoly?',
+    'Who here is the sorest loser? Point at them.',
+    'What should we play next time?'
+  ];
+  let order = [], pos = 0;
+  const shuffle = () => { order = questions.map((_, i) => i).sort(() => Math.random() - .5); pos = 0; };
+  shuffle();
+  $('draw').addEventListener('click', () => {
+    if (pos >= order.length) shuffle();
+    $('question').textContent = questions[order[pos]];
+    $('count').textContent = `${pos + 1} of ${questions.length}`;
+    pos++;
+  });
+
+  // Breather
+  let breathing = null;
+  $('breathe').addEventListener('click', () => {
+    const ball = $('ball'), label = $('breathLabel'), btn = $('breathe');
+    if (breathing) {
+      clearInterval(breathing); breathing = null;
+      ball.classList.remove('big'); label.textContent = 'in · hold · out'; btn.textContent = 'Start';
+      return;
+    }
+    const steps = [['Breathe in', true], ['Hold', true], ['Breathe out', false]];
+    let i = 0, rounds = 0;
+    const step = () => {
+      const [text, big] = steps[i % 3];
+      label.textContent = text; ball.classList.toggle('big', big);
+      i++; if (i % 3 === 0) rounds++;
+      if (rounds >= 5) { clearInterval(breathing); breathing = null; setTimeout(() => { label.textContent = 'Done. Back to it.'; btn.textContent = 'Start'; }, 4000); }
+    };
+    step(); breathing = setInterval(step, 4000);
+    btn.textContent = 'Stop';
+  });
+
+  // Game night invite
+  document.querySelectorAll('.chip').forEach((c) => c.addEventListener('click', () => { $('nightName').value = c.textContent; $('nightName').focus(); }));
+  $('inviteForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = $('nightName').value.trim();
+    if (!name) return;
+    const url = new URL(location.href);
+    url.hash = 'night=' + encodeURIComponent(name);
+    $('outName').textContent = name;
+    $('link').value = url.href;
+    $('out').classList.add('show');
+  });
+  $('copy').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText($('link').value); toast('Copied. Paste it in the group chat.'); }
+    catch { $('link').select(); toast('Select the link and copy it.'); }
+  });
+  if (location.hash.startsWith('#night=')) {
+    try {
+      const name = decodeURIComponent(location.hash.slice(7));
+      $('inv-title').textContent = 'You\'re invited';
+      $('nightName').value = name;
+      document.getElementById('invite').scrollIntoView();
+      toast(`Someone invited you to "${name}"`);
+    } catch {}
+  }
+</script>
+</body>
+</html>
