@@ -1,0 +1,11 @@
+DirectoryIndex index.php
+Options -Indexes
+
+RewriteEngine On
+RewriteRule ^index\.html$ index.php [L]
+RewriteRule ^(?:ads/)?track\.php$ api/track.php [L]
+
+<FilesMatch "^(?:\.env.*|composer\.(?:json|lock)|Procfile|vercel\.json)$">
+    Require all denied
+</FilesMatch>
+RewriteRule (^|/)\. - [F]
