@@ -2,3 +2,6 @@
 .vercel/
 .impeccable/
 marquee-landing/
+.vercelignore
+
+.vercel
