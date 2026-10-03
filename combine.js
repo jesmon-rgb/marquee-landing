@@ -202,7 +202,13 @@ const MOUNT = {
 
 bindGo(document);
 renderScorecard();
-select('reaction');
+// Ads deep-link straight to a drill with ?drill=<id>.
+const linked = new URLSearchParams(location.search).get('drill');
+if (DRILLS.some((d) => d.id === linked)) {
+  select(linked);
+  // Wait for fonts and layout, or the jump lands short of the arena.
+  window.addEventListener('load', () => setTimeout(() => $('arena').scrollIntoView({ behavior: 'instant' }), 50));
+} else select('reaction');
 
 /* ---------- Lobby talk ---------- */
 const QUESTIONS = [

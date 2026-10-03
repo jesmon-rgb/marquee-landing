@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Playroom ad creatives</title>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #111210; --panel: #1c1d1a; --panel-2: #24261f; --text: #f2f0e8; --muted: #9c9b91; --lime: #d4f76b; --red: #ff5a3c; --ink: #12140c; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: #444; font-family: "IBM Plex Mono", monospace; }
+  .ad { width: 1200px; height: 1200px; background: var(--bg); color: var(--text); position: relative; overflow: hidden; display: grid; place-items: center; margin-bottom: 40px; }
+  .disp { font-family: "Big Shoulders Display", Impact, sans-serif; font-weight: 900; text-transform: uppercase; line-height: .9; }
+  .cut { clip-path: polygon(40px 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%, 0 40px); }
+  .tag { position: absolute; left: 70px; bottom: 64px; display: flex; align-items: center; gap: 18px; font-size: 30px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .tag img { width: 56px; height: 56px; }
+
+  /* 1. Reaction: the GO panel */
+  #reaction .panel { width: 860px; height: 760px; background: var(--lime); color: var(--ink); display: grid; place-items: center; text-align: center; margin-top: -60px; }
+  #reaction .panel .disp { font-size: 240px; }
+  #reaction .panel .ms { font-size: 64px; font-weight: 600; margin-top: 30px; }
+
+  /* 2. Aim: target on a grid */
+  #aim { background: linear-gradient(#ffffff0d 2px, transparent 2px) 0 0 / 100px 100px, linear-gradient(90deg, #ffffff0d 2px, transparent 2px) 0 0 / 100px 100px, var(--panel-2); }
+  #aim .target { width: 520px; height: 520px; border-radius: 50%; margin-top: -60px; background: radial-gradient(circle, var(--red) 0 20%, #fff 20% 38%, var(--red) 38% 58%, #fff 58% 76%, var(--red) 76%); }
+  #aim .cross { position: absolute; width: 120px; height: 120px; left: 690px; top: 300px; }
+  #aim .cross::before, #aim .cross::after { content: ""; position: absolute; background: var(--lime); }
+  #aim .cross::before { left: 56px; top: 0; width: 8px; height: 120px; }
+  #aim .cross::after { top: 56px; left: 0; height: 8px; width: 120px; }
+
+  /* 3. Typing: a kopi order being typed */
+  #typing .stack { text-align: center; margin-top: -60px; }
+  #typing .order { font-size: 200px; }
+  #typing .order span { color: var(--lime); }
+  #typing .caret { display: inline-block; width: 14px; height: 170px; background: var(--lime); vertical-align: -20px; margin-left: 10px; }
+  #typing .field { margin: 60px auto 0; width: 820px; height: 120px; border: 4px solid var(--lime); font-size: 56px; display: flex; align-items: center; justify-content: center; color: var(--lime); }
+
+  /* 4. Memory: 3x3 stalls with a lit path */
+  #memory .grid { display: grid; grid-template-columns: repeat(3, 230px); gap: 30px; margin-top: -60px; }
+  #memory .grid div { height: 230px; background: var(--panel-2); clip-path: polygon(24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 24px); position: relative; }
+  #memory .grid div.on { background: var(--lime); }
+  #memory .grid div b { position: absolute; left: 24px; bottom: 18px; font-size: 40px; color: var(--ink); }
+
+  /* 5. Combine: the rank card */
+  #combine .card { width: 880px; background: var(--panel); padding: 70px; margin-top: -60px; }
+  #combine .row { display: flex; justify-content: space-between; font-size: 40px; padding: 22px 0; border-bottom: 3px solid #2f312b; }
+  #combine .row b { color: var(--lime); }
+  #combine .rank { font-size: 30px; letter-spacing: .1em; color: var(--muted); margin-top: 44px; text-transform: uppercase; }
+  #combine .rank .disp { font-size: 150px; color: var(--lime); letter-spacing: 0; margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<section class="ad" id="reaction">
+  <div class="panel cut"><div><div class="disp">Go go go!</div><div class="ms">214 ms</div></div></div>
+  <div class="tag"><img src="../assets/playroom-logo.png" alt="">Playroom · Doors Closing</div>
+</section>
+
+<section class="ad" id="aim">
+  <div class="target"></div><div class="cross"></div>
+  <div class="tag"><img src="../assets/playroom-logo.png" alt="">Playroom · Chope!</div>
+</section>
+
+<section class="ad" id="typing">
+  <div class="stack"><div class="order disp"><span>Kopi o</span> kos<i class="caret"></i></div><div class="field">kopi o kos</div></div>
+  <div class="tag"><img src="../assets/playroom-logo.png" alt="">Playroom · Kopi Order</div>
+</section>
+
+<section class="ad" id="memory">
+  <div class="grid"><div></div><div class="on"><b>1</b></div><div></div><div></div><div></div><div class="on"><b>3</b></div><div class="on"><b>2</b></div><div></div><div></div></div>
+  <div class="tag"><img src="../assets/playroom-logo.png" alt="">Playroom · Hawker Recall</div>
+</section>
+
+<section class="ad" id="combine">
+  <div class="card cut">
+    <div class="row"><span>Reaction</span><b>214 ms</b></div>
+    <div class="row"><span>Aim</span><b>486 ms</b></div>
+    <div class="row"><span>Typing</span><b>71 wpm</b></div>
+    <div class="rank">Your rank<div class="disp">Shiok</div></div>
+  </div>
+  <div class="tag"><img src="../assets/playroom-logo.png" alt="">Playroom · The Combine</div>
+</section>
+
+</body>
+</html>
