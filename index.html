@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marquee Nights — Live Concerts, Comedy &amp; Shows Near You</title>
+<meta name="description" content="Marquee Nights is your guide to live entertainment: concerts, stand-up comedy, theatre and festivals. Browse this month's shows, compare seats and book tickets online in minutes.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.example.com/">
+
+<!-- Open Graph: gives crawlers and link previews a clear summary of the page -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Marquee Nights — Live Concerts, Comedy &amp; Shows">
+<meta property="og:description" content="Browse this month's concerts, comedy nights, theatre and festivals, and book tickets online.">
+<meta property="og:url" content="https://www.example.com/">
+
+<!-- Structured data: plain JSON in the HTML, readable without running JavaScript -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Marquee Nights",
+  "url": "https://www.example.com/",
+  "description": "Live entertainment listings and ticketing for concerts, comedy, theatre and festivals.",
+  "contactPoint": { "@type": "ContactPoint", "contactType": "customer support", "email": "hello@example.com" }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0d0b14;
+    --surface: #17141f;
+    --surface-2: #211c2c;
+    --text: #f4f1fa;
+    --muted: #b3abc4;
+    --line: #2e2839;
+    --accent: #ff4d6d;
+    --accent-2: #ffb547;
+    --accent-ink: #1a0610;
+    --radius: 18px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 400 17px/1.6 "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: "Bricolage Grotesque", "Inter", sans-serif; line-height: 1.05; margin: 0; letter-spacing: -0.02em; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  header.site {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  header.site .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 22px; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .logo-mark { width: 26px; height: 26px; border-radius: 7px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
+  nav.primary { display: flex; gap: 28px; font-size: 15px; color: var(--muted); }
+  nav.primary a { text-decoration: none; }
+  nav.primary a:hover { color: var(--text); }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 24px; border-radius: 999px;
+    font-weight: 600; font-size: 16px; text-decoration: none;
+    transition: transform .15s ease, background .15s ease;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); }
+  .btn-primary:hover { background: #ff6a85; }
+  .btn-ghost { border: 1px solid var(--line); color: var(--text); }
+  .btn-ghost:hover { background: var(--surface); }
+  .btn-sm { padding: 10px 18px; font-size: 14px; }
+
+  /* Hero */
+  .hero { position: relative; overflow: hidden; padding: 110px 0 96px; }
+  .hero::before {
+    content: ""; position: absolute; inset: -20% -10% auto -10%; height: 140%;
+    background:
+      radial-gradient(40% 50% at 78% 30%, rgba(255,77,109,.35), transparent 70%),
+      radial-gradient(35% 45% at 95% 70%, rgba(255,181,71,.22), transparent 70%),
+      radial-gradient(30% 40% at 15% 10%, rgba(140,90,255,.18), transparent 70%);
+    pointer-events: none;
+  }
+  .hero .wrap { position: relative; display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
+  .eyebrow { display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--accent-2); margin-bottom: 20px; }
+  .hero h1 { font-size: clamp(44px, 7vw, 84px); font-weight: 800; }
+  .hero h1 em { font-style: normal; color: var(--accent); }
+  .hero p.lead { font-size: 20px; color: var(--muted); max-width: 540px; margin: 24px 0 36px; }
+  .hero .ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+  .trust { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 44px; font-size: 14px; color: var(--muted); }
+  .trust strong { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 28px; color: var(--text); }
+
+  /* Ticket card (pure CSS, no external images) */
+  .ticket {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 24px;
+    padding: 28px; transform: rotate(2deg); box-shadow: 0 30px 80px -20px rgba(0,0,0,.6);
+  }
+  .ticket-art {
+    height: 220px; border-radius: 16px; margin-bottom: 22px; position: relative; overflow: hidden;
+    background:
+      repeating-linear-gradient(100deg, rgba(255,255,255,.06) 0 2px, transparent 2px 22px),
+      linear-gradient(160deg, #3a1450, #ff4d6d 60%, #ffb547);
+  }
+  .ticket-art span { position: absolute; left: 18px; bottom: 16px; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 34px; line-height: 1; }
+  .ticket-row { display: flex; justify-content: space-between; font-size: 14px; color: var(--muted); padding: 10px 0; border-top: 1px dashed var(--line); }
+  .ticket-row b { color: var(--text); font-weight: 600; }
+
+  /* Sections */
+  section { padding: 88px 0; }
+  .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 40px; flex-wrap: wrap; }
+  .section-head h2 { font-size: clamp(32px, 4.4vw, 52px); font-weight: 800; }
+  .section-head p { color: var(--muted); max-width: 440px; margin: 0; }
+
+  /* Categories */
+  .cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .cat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+  .cat .icon { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font-size: 22px; background: var(--surface-2); margin-bottom: 18px; }
+  .cat h3 { font-size: 22px; margin-bottom: 8px; }
+  .cat p { color: var(--muted); font-size: 15px; margin: 0; }
+
+  /* Events */
+  .events { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .event { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
+  .event .art { height: 170px; position: relative; }
+  .event .art .date { position: absolute; top: 14px; left: 14px; background: rgba(13,11,20,.75); border-radius: 10px; padding: 6px 12px; font-size: 13px; font-weight: 600; }
+  .event .body { padding: 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .event .tag { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent-2); }
+  .event h3 { font-size: 24px; }
+  .event p { color: var(--muted); font-size: 15px; margin: 0; flex: 1; }
+  .event .foot { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; }
+  .event .price { font-weight: 600; }
+  .a1 { background: linear-gradient(135deg, #2b0f5c, #8c5aff 55%, #ff4d6d); }
+  .a2 { background: linear-gradient(135deg, #3d1a00, #ffb547 60%, #ffe3a3); }
+  .a3 { background: linear-gradient(135deg, #001f2e, #00a3b4 55%, #9df2e0); }
+  .a4 { background: linear-gradient(135deg, #3b0018, #ff4d6d 50%, #ffb547); }
+  .a5 { background: linear-gradient(135deg, #0c1a3a, #3d6bff 55%, #b4c6ff); }
+  .a6 { background: linear-gradient(135deg, #1a1a1a, #5b5470 50%, #e6dff5); }
+
+  /* Steps */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; counter-reset: step; }
+  .step { border-top: 2px solid var(--line); padding-top: 24px; }
+  .step::before { counter-increment: step; content: "0" counter(step); font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 42px; color: var(--accent); display: block; margin-bottom: 12px; }
+  .step h3 { font-size: 22px; margin-bottom: 8px; }
+  .step p { color: var(--muted); margin: 0; }
+
+  /* FAQ */
+  .faq { max-width: 820px; }
+  .faq details { border-bottom: 1px solid var(--line); padding: 22px 0; }
+  .faq summary { cursor: pointer; font-weight: 600; font-size: 19px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--accent); font-size: 24px; line-height: 1; }
+  .faq details[open] summary::after { content: "−"; }
+  .faq details p { color: var(--muted); margin: 12px 0 0; }
+
+  /* CTA band */
+  .band { background: linear-gradient(120deg, var(--accent), var(--accent-2)); color: var(--accent-ink); border-radius: 28px; padding: 64px 56px; display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap; }
+  .band h2 { font-size: clamp(32px, 4.4vw, 52px); font-weight: 800; max-width: 620px; }
+  .band .btn { background: var(--accent-ink); color: var(--text); }
+
+  footer { border-top: 1px solid var(--line); padding: 48px 0; color: var(--muted); font-size: 14px; margin-top: 88px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  footer nav { display: flex; gap: 22px; flex-wrap: wrap; }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--text); }
+
+  @media (max-width: 960px) {
+    .hero .wrap { grid-template-columns: 1fr; }
+    .ticket { transform: none; max-width: 440px; }
+    .cats { grid-template-columns: repeat(2, 1fr); }
+    .events, .steps { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 16px; }
+    nav.primary { display: none; }
+    .hero { padding: 72px 0 64px; }
+    section { padding: 64px 0; }
+    .cats, .events, .steps { grid-template-columns: 1fr; }
+    .band { padding: 40px 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn { transition: none; } }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="/"><span class="logo-mark" aria-hidden="true"></span>Marquee Nights</a>
+    <nav class="primary" aria-label="Primary">
+      <a href="#whats-on">What's on</a>
+      <a href="#categories">Categories</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#whats-on">Get tickets</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO: the core offer is in plain HTML text so a crawler sees it without running scripts -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Live entertainment · This month</span>
+        <h1 id="hero-title">Your next great night out <em>starts here.</em></h1>
+        <p class="lead">Concerts, stand-up comedy, theatre and festivals — all in one place. Browse what's on, pick your seats and get mobile tickets in under two minutes. No account needed to browse.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#whats-on">Browse this month's shows →</a>
+          <a class="btn btn-ghost" href="#how-it-works">How booking works</a>
+        </div>
+        <div class="trust">
+          <div><strong>1,200+</strong>shows a year</div>
+          <div><strong>4.8 / 5</strong>average guest rating</div>
+          <div><strong>No hidden fees</strong>price shown is price paid</div>
+        </div>
+      </div>
+
+      <aside class="ticket" aria-label="Featured event">
+        <div class="ticket-art"><span>Neon<br>Skyline</span></div>
+        <div class="ticket-row"><span>Featured</span><b>Neon Skyline — Live in Concert</b></div>
+        <div class="ticket-row"><span>Date</span><b>Sat, 24 Oct · 8:00 PM</b></div>
+        <div class="ticket-row"><span>Venue</span><b>Grand Hall Arena</b></div>
+        <div class="ticket-row"><span>From</span><b>RM 129</b></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- WHAT'S ON -->
+  <section id="whats-on" aria-labelledby="whats-on-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="whats-on-title">What's on</h2>
+        <p>Hand-picked shows for the coming weeks. Every listing shows the full ticket price, venue and running time up front.</p>
+      </div>
+      <div class="events">
+        <article class="event">
+          <div class="art a1"><span class="date">Sat 24 Oct</span></div>
+          <div class="body">
+            <span class="tag">Concert</span>
+            <h3>Neon Skyline — Live</h3>
+            <p>A synth-pop arena show with a full light production. Doors 7:00 PM, show runs about 2 hours.</p>
+            <div class="foot"><span class="price">From RM 129</span><a class="btn btn-primary btn-sm" href="/events/neon-skyline">Get tickets</a></div>
+          </div>
+        </article>
+        <article class="event">
+          <div class="art a2"><span class="date">Fri 30 Oct</span></div>
+          <div class="body">
+            <span class="tag">Comedy</span>
+            <h3>Late Laughs Showcase</h3>
+            <p>Five rising stand-up comedians, one host, ninety minutes. Ages 18+, bar open throughout.</p>
+            <div class="foot"><span class="price">From RM 59</span><a class="btn btn-primary btn-sm" href="/events/late-laughs">Get tickets</a></div>
+          </div>
+        </article>
+        <article class="event">
+          <div class="art a3"><span class="date">6–8 Nov</span></div>
+          <div class="body">
+            <span class="tag">Festival</span>
+            <h3>Tidewater Music Festival</h3>
+            <p>Three days, two stages, 30+ artists by the waterfront. Day passes and weekend passes available.</p>
+            <div class="foot"><span class="price">From RM 189</span><a class="btn btn-primary btn-sm" href="/events/tidewater">Get tickets</a></div>
+          </div>
+        </article>
+        <article class="event">
+          <div class="art a4"><span class="date">Thu 12 Nov</span></div>
+          <div class="body">
+            <span class="tag">Theatre</span>
+            <h3>The Paper Lantern</h3>
+            <p>An award-winning stage drama about two sisters and one family secret. Runs 2 hrs 15 min with interval.</p>
+            <div class="foot"><span class="price">From RM 79</span><a class="btn btn-primary btn-sm" href="/events/paper-lantern">Get tickets</a></div>
+          </div>
+        </article>
+        <article class="event">
+          <div class="art a5"><span class="date">Sun 15 Nov</span></div>
+          <div class="body">
+            <span class="tag">Family</span>
+            <h3>Starlight Magic Show</h3>
+            <p>Illusions, audience tricks and a little science. Great for ages 5 and up. Matinee at 2:00 PM.</p>
+            <div class="foot"><span class="price">From RM 45</span><a class="btn btn-primary btn-sm" href="/events/starlight-magic">Get tickets</a></div>
+          </div>
+        </article>
+        <article class="event">
+          <div class="art a6"><span class="date">Sat 21 Nov</span></div>
+          <div class="body">
+            <span class="tag">Jazz</span>
+            <h3>Midnight Jazz Session</h3>
+            <p>An intimate quartet set in a 200-seat lounge. Table seating, drinks menu, two 45-minute sets.</p>
+            <div class="foot"><span class="price">From RM 89</span><a class="btn btn-primary btn-sm" href="/events/midnight-jazz">Get tickets</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section id="categories" aria-labelledby="categories-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="categories-title">Find your kind of night</h2>
+        <p>Whatever you're in the mood for, browse by category and filter by date, venue and price.</p>
+      </div>
+      <div class="cats">
+        <div class="cat"><div class="icon" aria-hidden="true">🎤</div><h3>Concerts</h3><p>Arena tours, club gigs and acoustic sets across every genre.</p></div>
+        <div class="cat"><div class="icon" aria-hidden="true">😂</div><h3>Comedy</h3><p>Stand-up specials, improv nights and open-mic showcases.</p></div>
+        <div class="cat"><div class="icon" aria-hidden="true">🎭</div><h3>Theatre</h3><p>Musicals, plays and dance from local and touring companies.</p></div>
+        <div class="cat"><div class="icon" aria-hidden="true">🎡</div><h3>Festivals</h3><p>Multi-day music, food and arts festivals with day and weekend passes.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="how-title">Booking in three steps</h2>
+        <p>Everything happens right here on the website — no app download required.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>Pick a show</h3><p>Browse listings with full details: date, venue, running time, age rating and total price.</p></div>
+        <div class="step"><h3>Choose your seats</h3><p>See the seating map, compare sections and hold your seats for 10 minutes while you check out.</p></div>
+        <div class="step"><h3>Get mobile tickets</h3><p>Tickets arrive by email instantly. Show the QR code at the door — printing is optional.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ: native <details>, works with JavaScript disabled -->
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="section-head"><h2 id="faq-title">Questions, answered</h2></div>
+      <div class="faq">
+        <details open>
+          <summary>Are there booking or service fees?</summary>
+          <p>No hidden fees. The price on the listing is the total you pay at checkout, including taxes.</p>
+        </details>
+        <details>
+          <summary>Can I get a refund if an event is cancelled?</summary>
+          <p>Yes. If an organiser cancels or reschedules, you can request a full refund to your original payment method within 30 days.</p>
+        </details>
+        <details>
+          <summary>Do I need an account to buy tickets?</summary>
+          <p>No. You can browse and check out as a guest. An account is optional and lets you save favourite venues and see past orders.</p>
+        </details>
+        <details>
+          <summary>How do I get my tickets?</summary>
+          <p>Mobile tickets with a QR code are emailed to you immediately after purchase. Just show them on your phone at the entrance.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section aria-label="Get started">
+    <div class="wrap">
+      <div class="band">
+        <h2>Don't miss the shows everyone will be talking about.</h2>
+        <a class="btn" href="#whats-on">See what's on →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Marquee Nights. All rights reserved. · <a href="mailto:hello@example.com">hello@example.com</a></div>
+    <nav aria-label="Footer">
+      <a href="/about">About</a>
+      <a href="/terms">Terms</a>
+      <a href="/privacy">Privacy policy</a>
+      <a href="/refunds">Refund policy</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

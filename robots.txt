@@ -1,0 +1,15 @@
+# OpenAI ads review crawler (required for ChatGPT Ads landing page validation)
+User-agent: OAI-AdsBot
+Allow: /
+
+# OpenAI search crawler (recommended; also needs access to product images)
+User-agent: OAI-SearchBot
+Allow: /
+
+# Everyone else
+User-agent: *
+Allow: /
+Disallow: /checkout/
+Disallow: /account/
+
+Sitemap: https://www.example.com/sitemap.xml
