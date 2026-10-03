@@ -1,32 +1,45 @@
-# OpenAI crawler checklist for this landing page
+# ChatGPT Ads preparation — Playroom
 
-The page is built to pass OAI-AdsBot review:
+Updated 3 October 2026. These changes prepare the landing page for review; they do not guarantee ad approval.
 
-- **Static HTML.** All headlines, prices, event details and FAQ answers are in the HTML. No JavaScript needed to read the content, no login, no app-store-only links, no redirects.
-- **No external images.** All artwork is CSS gradients, so there's no image host that could return a 403.
-- **`robots.txt`** explicitly allows `OAI-AdsBot` and `OAI-SearchBot`.
-- Policy pages are linked in the footer (terms, privacy, refunds, contact). Make sure they really exist before you submit.
+## What this page offers
 
-## Before you submit the ad
+- Free, single-player reflex game (Neon Knockout).
+- Conversation prompts to use with friends (Table Talk).
+- Optional four-second breathing timer (Slow Sunday), without medical claims.
+- Named invite links for planning a game night (Wildside and the invite presets).
+- No live community, chat, matchmaking, online multiplayer, payments, wagering, or cash prizes.
 
-1. Replace `https://www.example.com` (in `index.html`, `robots.txt`, `sitemap.xml`) and `hello@example.com` with your real domain and email.
-2. Deploy `index.html`, `robots.txt` and `sitemap.xml` to the site root.
-3. Test the page as the crawler would see it. You should get `200 OK`, not 403 or 429:
+Game descriptions are static HTML and readable without JavaScript. Playing and making invites require JavaScript. Visitors do not need an account. Nicknames and the latest invite name are stored locally. The page explains storage and external photo requests and offers a clear-data button.
 
-   ```bash
-   curl -I -A "Mozilla/5.0 (compatible; OAI-AdsBot/1.0; +https://openai.com/adsbot)" https://www.example.com/
-   ```
+## Before submitting
 
-   ```bash
-   curl -A "OAI-AdsBot" https://www.example.com/robots.txt
-   ```
+1. Deploy the site to a public HTTPS domain. The local file URL cannot serve as an ad destination.
+2. Set the real domain in sitemap.xml and add its Sitemap URL to robots.txt. No production domain has been supplied, so this workspace does not publish a made-up canonical or sitemap destination.
+3. Verify the deployed landing page returns HTTP 200 to OAI-AdsBot. Check robots.txt, hosting firewall/CDN rules, CAPTCHA, redirects, and rate limits. Also allow OAI-SearchBot.
+4. Verify external images load for crawlers, or replace them with appropriately licensed hosted images. The current photos are atmosphere images, not game screenshots.
+5. Provide accurate advertiser/business identity and a real support contact before launch. No business name, address, or email has been invented here.
+6. Match each ad to the feature actually offered. Do not describe invite ideas as live rooms, promise online multiplayer, or imply ChatGPT/OpenAI endorsement.
+7. Review the deployed page, privacy disclosure, and assets against current policies and the actual hosting configuration.
 
-## If you're behind Cloudflare / a WAF
+## Suggested ad copy
 
-- OAI-AdsBot is a Cloudflare **verified bot**. Check Security → Bots: "Allow verified bots" should be on. Bot Fight Mode can still challenge some bots, so turn it off or exempt this page if the test fails.
-- Add a WAF custom rule with **Skip** for managed rules, rate limiting and Super Bot Fight Mode:
-  `(cf.client.bot) or (http.user_agent contains "OAI-AdsBot") or (http.user_agent contains "OAI-SearchBot")`
-  Matching on user agent alone can be spoofed. Pair it with `cf.client.bot` or with OpenAI's published IP ranges:
-  https://openai.com/adsbot.json and https://openai.com/searchbot.json
-- Don't put a CAPTCHA, JS challenge, cookie wall, age gate or geo-block on this URL.
-- Upload ads in small batches so you don't trip rate limits (429).
+Title: Free browser reflex game
+Description: Try Neon Knockout: hit the glowing tile in a 20-second round. No download, signup, or payment needed.
+Destination: /#discover
+
+Title: Conversation cards for game night
+Description: Draw a conversation prompt with Table Talk and take turns with friends. Free to use in your browser.
+Destination: /#discover
+
+Title: Make a game-night invite
+Description: Name your game night, copy the link, and send it to friends through your usual group chat.
+Destination: /#game-night
+
+Use the full public HTTPS destination when submitting. Anchor links select a section; they do not open a game automatically.
+
+## Official sources
+
+- https://help.openai.com/en/articles/20001212-create-ads-for-chatgpt-ads
+- https://help.openai.com/en/articles/20001243-advertiser-guidance-for-allowing-openai-web-crawlers
+- https://openai.com/policies/ad-policies/
