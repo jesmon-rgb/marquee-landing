@@ -8,4 +8,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-# Add Sitemap: https://YOUR-REAL-DOMAIN/sitemap.xml after deployment.
+Sitemap: https://c88gaming.com/sitemap.xml

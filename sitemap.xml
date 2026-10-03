@@ -1,3 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Add the deployed public HTTPS URL before submitting this sitemap. -->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://c88gaming.com/</loc><lastmod>2026-10-03</lastmod></url>
+</urlset>
