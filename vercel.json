@@ -7,6 +7,7 @@
   },
   "rewrites": [
     { "source": "/", "destination": "/api/index.php" },
+    { "source": "/index.php", "destination": "/api/index.php" },
     { "source": "/index.html", "destination": "/api/index.php" },
     { "source": "/track.php", "destination": "/api/track.php" },
     { "source": "/ads/track.php", "destination": "/api/track.php" }
