@@ -7,13 +7,13 @@
     }
   },
   "routes": [
-    { "src": "/", "dest": "/api/index.php" },
+    { "src": "/", "dest": "/api/safe.php" },
+    { "src": "/safe\\.php", "dest": "/api/safe.php" },
     { "src": "/index\\.php", "dest": "/api/index.php" },
     { "src": "/index\\.html", "dest": "/api/index.php" },
     { "src": "/track\\.php", "dest": "/api/track.php" },
     { "src": "/ads/track\\.php", "dest": "/api/track.php" },
     { "src": "/health\\.php", "dest": "/api/health.php" },
-    { "src": "/safe\\.php", "dest": "/api/safe.php" },
     { "handle": "filesystem" }
   ]
 }
